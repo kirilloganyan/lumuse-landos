@@ -1,0 +1,1 @@
+export { PricingAndFaqSection } from "./PricingAndFaqSection";

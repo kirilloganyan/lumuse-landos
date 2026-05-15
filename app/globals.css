@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css?family=Onest:var(--text-body-font-weight),var(--headline-headline-2-font-weight),500,var(--text-body-medium-font-weight),400,var(--text-caption-medium-font-weight),var(--headline-headline-3-font-weight),var(--text-callout-medium-font-weight)");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  /*
+    # Design Tokens (CSV: name, value, usage)
+    ## Colors — Primary
+    --color-primary, #141414, main text, buttons, headings
+    --color-primary-muted, #14141499, secondary text, descriptions
+    --color-primary-subtle, #14141459, tertiary text, disabled
+    --color-primary-faint, #1414140d, borders, subtle backgrounds
+    --color-primary-ghost, #14141414, hover states
+
+    ## Colors — Accent
+    --color-accent, #e05e18, highlights, active states, badges
+    --color-accent-faint, #fd53041a, accent badge backgrounds
+    --color-accent-green, #53c587, avatar, success indicators
+
+    ## Colors — Background
+    --color-bg-page, #e2e2e2, page background
+    --color-bg-card, #ededed, card backgrounds
+    --color-bg-card-hover, #cbcdcf0a, card hover backgrounds
+    --color-bg-white-50, #ffffff80, semi-transparent white
+    --color-bg-white-70, #ffffffb2, 70% white overlays
+    --color-bg-white-80, #ffffffcc, 80% white overlays
+    --color-bg-white-60, #ffffff99, 60% white overlays
+    --color-bg-white-50-solid, #ffffff50, 50% white gradient
+    --color-bg-gray-ghost, #aeaeae33, ghost button backgrounds
+    --color-bg-gray-ghost-hover, #aeaeae40, ghost button hover
+
+    ## Colors — Utility
+    --color-gray, #8e8e8e, placeholder bars, skeleton
+    --color-dark-blur, #191921, blur shadow elements
+
+    ## Colors — Gradients
+    --gradient-hero-top, rgba(255,255,255,0.7)_0%_rgba(255,255,255,0)_100%, hero top fade
+    --gradient-hero-mid, rgba(255,255,255,1)_50%_rgba(255,255,255,0)_100%, hero mid fade
+    --gradient-card, rgba(237,237,237,1)_0%_rgba(255,255,255,0.5)_100%, card background
+    --gradient-glass, rgba(255,255,255,0.6)_0%_rgba(255,255,255,0.36)_100%, glass border
+    --gradient-glass-fade, rgba(255,255,255,0)_0%_rgba(255,255,255,0)_100%, glass fade
+
+    ## Spacing — Container
+    --container-max, 1264px, main content max-width
+    --container-wide, 1445px, wide section max-width
+    --container-footer, 1440px, footer max-width
+    --container-content, 924px, narrow content max-width
+
+    ## Spacing — Section
+    --section-py, 96px, section vertical padding (py-24)
+    --section-py-md, 128px, section vertical padding md (py-32)
+    --section-px-lg, 88px, section horizontal padding lg
+
+    ## Spacing — Card
+    --card-px, 24px, card horizontal padding (px-6)
+    --card-py, 28px, card vertical padding (py-7)
+    --card-pt, 48px, card top padding (pt-12)
+    --card-pb, 24px, card bottom padding (pb-6)
+    --card-gap, 16px, card internal gap (gap-4)
+    --card-min-h, 452px, card minimum height
+
+    ## Spacing — Component
+    --btn-px, 16px, button horizontal padding (px-4)
+    --btn-py, 14px, button vertical padding (py-3.5)
+    --btn-pill-px, 22px, pill button horizontal padding
+    --btn-pill-py, 14px, pill button vertical padding
+    --badge-px, 16px, badge horizontal padding
+    --badge-py, 8px, badge vertical padding
+    --badge-pl, 12px, badge left padding
+    --badge-pr, 16px, badge right padding
+
+    ## Spacing — Gap
+    --gap-xs, 8px, extra small gap (gap-2)
+    --gap-sm, 12px, small gap (gap-3)
+    --gap-md, 16px, medium gap (gap-4)
+    --gap-lg, 24px, large gap (gap-6)
+    --gap-xl, 32px, extra large gap (gap-8)
+    --gap-2xl, 40px, 2x large gap (gap-10)
+    --gap-3xl, 48px, 3x large gap (gap-12)
+    --gap-4xl, 56px, 4x large gap (gap-14)
+    --gap-5xl, 64px, 5x large gap (gap-16)
+    --gap-6xl, 80px, 6x large gap (gap-20)
+
+    ## Border Radius
+    --radius-sm, 9px, small radius
+    --radius-md, 12px, medium radius
+    --radius-lg, 16px, large radius
+    --radius-xl, 20px, extra large radius
+    --radius-2xl, 24px, 2x large radius (rounded-3xl)
+    --radius-pill, 44px, pill button radius
+    --radius-footer, 48px, footer top radius
+    --radius-badge, 32px, badge radius
+    --radius-toggle, 34.41px, toggle button radius
+    --radius-card-platform, 20.51px, platform card radius
+
+    ## Typography — Heading 1
+    --h1-size-mobile, 32px, mobile heading size
+    --h1-size-tablet, 44px, tablet heading size
+    --h1-size-desktop, 56px, desktop heading size
+    --h1-leading, 72px, heading line height
+    --h1-tracking, -1.56px, heading letter spacing
+
+    ## Typography — Heading 2
+    --h2-size, 56px, section heading size
+    --h2-size-tablet, 44px, section heading tablet
+    --h2-size-mobile, 36px, section heading mobile
+    --h2-leading, 56px, heading line height
+    --h2-leading-tablet, 48px, heading line height tablet
+    --h2-tracking, -1.68px, heading letter spacing
+    --h2-tracking-tablet, -1.32px, heading letter spacing tablet
+    --h2-tracking-mobile, -1.08px, heading letter spacing mobile
+
+    ## Typography — Pricing
+    --price-size, 40px, pricing number size
+    --price-leading, 44px, pricing number line height
+    --price-tracking, -0.80px, pricing letter spacing
+  */
+
+  /* Colors — Primary */
+  --color-primary: #141414;
+  --color-primary-muted: #14141499;
+  --color-primary-subtle: #14141459;
+  --color-primary-faint: #1414140d;
+  --color-primary-ghost: #14141414;
+
+  /* Colors — Accent */
+  --color-accent: #e05e18;
+  --color-accent-faint: #fd53041a;
+  --color-accent-green: #53c587;
+
+  /* Colors — Background */
+  --color-bg-page: #e2e2e2;
+  --color-bg-card: #ededed;
+  --color-bg-card-hover: #cbcdcf0a;
+  --color-bg-white-50: #ffffff80;
+  --color-bg-white-70: #ffffffb2;
+  --color-bg-white-80: #ffffffcc;
+  --color-bg-white-60: #ffffff99;
+  --color-bg-white-50-solid: #ffffff50;
+  --color-bg-gray-ghost: #aeaeae33;
+  --color-bg-gray-ghost-hover: #aeaeae40;
+
+  /* Colors — Utility */
+  --color-gray: #8e8e8e;
+  --color-dark-blur: #191921;
+
+  /* Colors — Gradients */
+  --gradient-hero-top: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+  --gradient-hero-mid: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  --gradient-card: linear-gradient(0deg, rgba(237,237,237,1) 0%, rgba(237,237,237,1) 100%), linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%);
+  --gradient-glass: linear-gradient(188deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.36) 100%);
+  --gradient-glass-fade: linear-gradient(197deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+
+  /* Spacing — Container */
+  --container-max: 1264px;
+  --container-wide: 1445px;
+  --container-footer: 1440px;
+  --container-content: 924px;
+
+  /* Spacing — Section */
+  --section-py: 96px;
+  --section-py-md: 128px;
+  --section-px-lg: 88px;
+
+  /* Spacing — Card */
+  --card-px: 24px;
+  --card-py: 28px;
+  --card-pt: 48px;
+  --card-pb: 24px;
+  --card-gap: 16px;
+  --card-min-h: 452px;
+
+  /* Spacing — Component */
+  --btn-px: 16px;
+  --btn-py: 14px;
+  --btn-pill-px: 22px;
+  --btn-pill-py: 14px;
+  --badge-px: 16px;
+  --badge-py: 8px;
+  --badge-pl: 12px;
+  --badge-pr: 16px;
+
+  /* Spacing — Gap */
+  --gap-xs: 8px;
+  --gap-sm: 12px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+  --gap-2xl: 40px;
+  --gap-3xl: 48px;
+  --gap-4xl: 56px;
+  --gap-5xl: 64px;
+  --gap-6xl: 80px;
+
+  /* Border Radius */
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-pill: 44px;
+  --radius-footer: 48px;
+  --radius-badge: 32px;
+  --radius-toggle: 34.41px;
+  --radius-card-platform: 20.51px;
+
+  /* Typography — Heading 1 */
+  --h1-size-mobile: 32px;
+  --h1-size-tablet: 44px;
+  --h1-size-desktop: 56px;
+  --h1-leading: 72px;
+  --h1-tracking: -1.56px;
+
+  /* Typography — Heading 2 */
+  --h2-size: 56px;
+  --h2-size-tablet: 44px;
+  --h2-size-mobile: 36px;
+  --h2-leading: 56px;
+  --h2-leading-tablet: 48px;
+  --h2-tracking: -1.68px;
+  --h2-tracking-tablet: -1.32px;
+  --h2-tracking-mobile: -1.08px;
+
+  /* Typography — Pricing */
+  --price-size: 40px;
+  --price-leading: 44px;
+  --price-tracking: -0.80px;
+
+  /* Typography — Font families (existing) */
+  --headline-headline-2-font-family: "Onest", Helvetica;
+  --headline-headline-2-font-size: 24px;
+  --headline-headline-2-font-style: normal;
+  --headline-headline-2-font-weight: 500;
+  --headline-headline-2-letter-spacing: -0.48px;
+  --headline-headline-2-line-height: 32px;
+  --headline-headline-3-font-family: "Onest", Helvetica;
+  --headline-headline-3-font-size: 20px;
+  --headline-headline-3-font-style: normal;
+  --headline-headline-3-font-weight: 500;
+  --headline-headline-3-letter-spacing: -0.4px;
+  --headline-headline-3-line-height: 24px;
+  --light-themeneutralcolor-0-white: rgba(255, 255, 255, 1);
+  --text-body-font-family: "Onest", Helvetica;
+  --text-body-font-size: 16px;
+  --text-body-font-style: normal;
+  --text-body-font-weight: 400;
+  --text-body-letter-spacing: -0.32px;
+  --text-body-line-height: 20px;
+  --text-body-medium-font-family: "Onest", Helvetica;
+  --text-body-medium-font-size: 16px;
+  --text-body-medium-font-style: normal;
+  --text-body-medium-font-weight: 500;
+  --text-body-medium-letter-spacing: -0.32px;
+  --text-body-medium-line-height: 20px;
+  --text-callout-medium-font-family: "Onest", Helvetica;
+  --text-callout-medium-font-size: 14px;
+  --text-callout-medium-font-style: normal;
+  --text-callout-medium-font-weight: 500;
+  --text-callout-medium-letter-spacing: -0.2800000000000001px;
+  --text-callout-medium-line-height: 18px;
+  --text-caption-medium-font-family: "Onest", Helvetica;
+  --text-caption-medium-font-size: 12px;
+  --text-caption-medium-font-style: normal;
+  --text-caption-medium-font-weight: 500;
+  --text-caption-medium-letter-spacing: -0.12px;
+  --text-caption-medium-line-height: 16px;
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
