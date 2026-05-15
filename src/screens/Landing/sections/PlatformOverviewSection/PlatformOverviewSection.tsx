@@ -9,15 +9,15 @@ import {
 } from "@/components/ui/toggle-group";
 
 const topActionTags = [
-  { icon: "/icon-44.svg", label: "Превью" },
-  { icon: "/icon-56.svg", label: "Редактировать" },
+  { icon: "/icon-3.svg", label: "Превью" },
+  { icon: "/icon-23.svg", label: "Редактировать" },
 ];
 
 const postDetails = [
   {
     label: "Срок исполнения:",
     value: "13 декабря 2025 • 13:20",
-    icon: "/icon-45.svg",
+    icon: "/icon-16.svg",
   },
   {
     label: "Платформа:",
@@ -36,8 +36,8 @@ const postDetails = [
 ];
 
 const notificationItems = [
-  { icon: "/frame-2.svg", label: "@username" },
-  { icon: "/frame-3.svg", label: "test@test.com" },
+  { icon: "/frame-1.svg", label: "@username" },
+  { icon: "/frame.svg", label: "test@test.com" },
 ];
 
 const mediaItems = [
@@ -66,7 +66,7 @@ const projectCards = [
   },
   {
     muted: false,
-    icon: "/icon-58.svg",
+    icon: "/icon-14.svg",
     title: "Название задачи",
     description:
       "Разработка контентной стратегии и создание серии материалов...",
@@ -84,7 +84,7 @@ const sidebarMainItems = [
   { icon: "/icon-62.svg", label: "Новый чат" },
   { icon: "/icon-61.svg", label: "Генерация" },
   { icon: "/icon-1.svg", label: "Проекты" },
-  { icon: "/icon-15.svg", label: "Посты" },
+  { icon: "/icon-19.svg", label: "Посты" },
 ];
 
 export const PlatformOverviewSection = (): React.JSX.Element => {
@@ -109,7 +109,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                       <img
                         className="absolute left-[5%] top-[calc(50.00%_-_10px)] h-5 w-[19.32%]"
                         alt="Subtract"
-                        src="/subtract.svg"
+                        src="/frame-2131328921.svg"
                       />
                       <img
                         className="absolute left-[32.13%] top-[26.25%] h-[47.48%] w-[61.02%]"
@@ -124,7 +124,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                       <img
                         className="h-[15.64px] w-[15.64px]"
                         alt="Icon"
-                        src="/icon-49.svg"
+                        src="/icon-15.svg"
                       />
                     </Button>
                   </div>
@@ -159,7 +159,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                       <img
                         className="h-px flex-1"
                         alt="Line"
-                        src="/vector-15.svg"
+                        src="/vector-13.svg"
                       />
                     </div>
                     <div className="flex flex-col gap-[3.13px] px-[9.38px]">
@@ -229,7 +229,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                             <img
                               className="h-[15.64px] w-[15.64px]"
                               alt="Plus circle"
-                              src="/plus-circle-1.svg"
+                              src="/plus-circle.svg"
                             />
                             <span className="inline-flex items-center justify-center gap-[6.26px] px-[4.69px] py-[0.78px]">
                               <span className="mt-[-0.78px] whitespace-nowrap [font-family:'Onest',Helvetica] text-[10.9px] font-medium leading-[14.1px] tracking-[-0.22px] text-[var(--color-primary-muted)]">
@@ -252,7 +252,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                       <img
                         className="mt-[10px] h-px w-full max-w-[234.58px]"
                         alt="Vector"
-                        src="/vector-15.svg"
+                        src="/vector-13.svg"
                       />
                       <div className="mt-[6px] flex w-full max-w-[234.58px] flex-col gap-[9.38px]">
                         <div className="flex items-center justify-between">
@@ -462,7 +462,7 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
                         <img
                           className="h-px w-full"
                           alt="Vector"
-                          src="/vector-15.svg"
+                          src="/vector-13.svg"
                         />
                         <div className="flex flex-col gap-[25.02px]">
                           <section className="inline-flex flex-col items-start gap-[9.38px]">
