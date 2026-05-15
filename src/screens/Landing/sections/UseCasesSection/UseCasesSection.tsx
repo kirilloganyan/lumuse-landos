@@ -144,7 +144,7 @@ const aiPromptTags = [
   },
   {
     label: "Добавить файл",
-    leadingIcon: "/icon-13.svg",
+    leadingIcon: "/plus-circle.svg",
   },
 ];
 
@@ -189,12 +189,11 @@ export const UseCasesSection = (): React.JSX.Element => {
               <div
                 className="flex gap-3 transition-transform duration-300 ease-out"
                 style={{
-                  transform: `translateX(-${carouselIndex * (100 / Math.min(modelCards.length, 1))}%)`,
+                  transform: `translateX(-${carouselIndex * (255 + 12)}px)`,
                 }}
               >
                 {modelCards.map((card, index) => (
-                  <div key={card.title} className="w-full flex-shrink-0 sm:w-1/2 xl:w-1/4">
-                    <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
+                    <div key={card.title} className="w-[255px] flex-shrink-0">                    <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
                       <CardContent className="relative h-full p-0">
                         {card.bottomGlow ? (
                           <img
