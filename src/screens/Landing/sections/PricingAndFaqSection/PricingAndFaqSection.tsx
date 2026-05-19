@@ -197,7 +197,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
                         <p className="font-medium leading-[var(--price-leading)] tracking-[var(--price-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--price-size)]">
                           {planPrices[billingPeriod][index]}
                         </p>
-                        <span className="font-text-caption-medium text-[length:var(--text-caption-medium-font-size)] font-[number:var(--text-caption-medium-font-weight)] leading-[var(--text-caption-medium-line-height)] tracking-[var(--text-caption-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-caption-medium-font-style)]">
+                        <span className="font-text-caption-medium text-[length:var(--text-caption-medium-font-size)] font-[number:var(--text-caption-medium-font-weight)] leading-[var(--text-caption-medium-line-height)] tracking-[var(--text-caption-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-caption-medium-font-style)] lg:text-[40px]">
                           {plan.title === "Бесплатный" ? plan.period : `${plan.period}: ${billingPeriod.toLowerCase()}`}
                         </span>
                       </div>
