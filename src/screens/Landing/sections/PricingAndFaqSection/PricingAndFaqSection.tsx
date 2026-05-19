@@ -133,7 +133,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
       <div className="flex w-full flex-col items-start gap-[var(--gap-5xl)]">
         <header className="flex w-full flex-col items-center gap-[var(--gap-xl)]">
           <div className="flex w-full max-w-[628px] flex-col items-center gap-[var(--gap-md)]">
-            <h2 className="text-center font-normal leading-[var(--h2-leading-tablet)] tracking-[var(--h2-tracking-tablet)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h2-size-mobile)] md:text-[var(--h2-size-tablet)] lg:text-[var(--h2-size)] lg:leading-[var(--h2-leading)] lg:tracking-[var(--h2-tracking)]">
+            <h2 className="text-center font-normal leading-[var(--h2-leading-tablet)] tracking-[var(--h2-tracking-tablet)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h2-size-mobile)] md:text-[var(--h2-size-tablet)] lg:text-[56px] lg:leading-[56px] lg:tracking-[-1.68px]">
               Простые и понятные тарифы
             </h2>
             <p className="max-w-[532px] text-center font-headline-headline-3 text-[length:var(--headline-headline-3-font-size)] font-[number:var(--headline-headline-3-font-weight)] leading-[var(--headline-headline-3-line-height)] tracking-[var(--headline-headline-3-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--headline-headline-3-font-style)]">
@@ -194,10 +194,10 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
                         </p>
                       </div>
                       <div className="flex w-full flex-col items-start gap-0.5">
-                        <p className="font-medium leading-[var(--price-leading)] tracking-[var(--price-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--price-size)]">
+                        <p className="font-medium leading-[var(--price-leading)] tracking-[var(--price-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--price-size)] lg:text-[40px]">
                           {planPrices[billingPeriod][index]}
                         </p>
-                        <span className="font-text-caption-medium text-[length:var(--text-caption-medium-font-size)] font-[number:var(--text-caption-medium-font-weight)] leading-[var(--text-caption-medium-line-height)] tracking-[var(--text-caption-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-caption-medium-font-style)] lg:text-[40px]">
+                        <span className="font-text-caption-medium text-[length:var(--text-caption-medium-font-size)] font-[number:var(--text-caption-medium-font-weight)] leading-[var(--text-caption-medium-line-height)] tracking-[var(--text-caption-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-caption-medium-font-style)]">
                           {plan.title === "Бесплатный" ? plan.period : `${plan.period}: ${billingPeriod.toLowerCase()}`}
                         </span>
                       </div>
