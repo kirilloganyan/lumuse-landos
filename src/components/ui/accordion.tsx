@@ -1,54 +1,121 @@
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
+"use client";
+
 import { ChevronDownIcon } from "lucide-react";
 import * as React from "react";
-import { cn } from "../libя";
+import { cn } from "@/lib/utils";
 
-const Accordion = AccordionPrimitive.Root;
+type AccordionContextValue = {
+  value?: string;
+  collapsible?: boolean;
+  setValue: (value?: string) => void;
+};
 
-const AccordionItem = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Item>,
-    React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-    <AccordionPrimitive.Item
-        ref={ref}
-        className={cn("border-b", className)}
-        {...props}
-    />
-));
+const AccordionContext = React.createContext<AccordionContextValue | null>(null);
+const AccordionItemContext = React.createContext<string | null>(null);
+
+type AccordionProps = Omit<React.HTMLAttributes<HTMLDivElement>, "defaultValue"> & {
+  type?: "single";
+  collapsible?: boolean;
+  defaultValue?: string;
+};
+
+const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
+  ({ className, collapsible, defaultValue, ...props }, ref) => {
+    const [value, setValue] = React.useState<string | undefined>(defaultValue);
+
+    return (
+      <AccordionContext.Provider value={{ value, collapsible, setValue }}>
+        <div ref={ref} className={className} {...props} />
+      </AccordionContext.Provider>
+    );
+  },
+);
+Accordion.displayName = "Accordion";
+
+type AccordionItemProps = React.HTMLAttributes<HTMLDivElement> & {
+  value: string;
+};
+
+const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
+  ({ className, value, ...props }, ref) => {
+    const accordion = React.useContext(AccordionContext);
+    const open = accordion?.value === value;
+
+    return (
+      <AccordionItemContext.Provider value={value}>
+        <div
+          ref={ref}
+          data-state={open ? "open" : "closed"}
+          className={cn("border-b", className)}
+          {...props}
+        />
+      </AccordionItemContext.Provider>
+    );
+  },
+);
 AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Trigger>,
-    React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-    <AccordionPrimitive.Header className="flex">
-        <AccordionPrimitive.Trigger
-            ref={ref}
-            className={cn(
-                "flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline text-left [&[data-state=open]>svg]:rotate-180",
-                className,
-            )}
-            {...props}
-        >
-            {children}
-            <ChevronDownIcon className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
-        </AccordionPrimitive.Trigger>
-    </AccordionPrimitive.Header>
-));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, children, ...props }, ref) => {
+  const accordion = React.useContext(AccordionContext);
+  const itemValue = React.useContext(AccordionItemContext);
+  const open = Boolean(itemValue && accordion?.value === itemValue);
+
+  return (
+    <div className="flex">
+      <button
+        ref={ref}
+        type="button"
+        aria-expanded={open}
+        data-state={open ? "open" : "closed"}
+        className={cn(
+          "flex flex-1 items-center justify-between py-4 text-left text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+          className,
+        )}
+        onClick={(event) => {
+          props.onClick?.(event);
+          if (event.defaultPrevented || !accordion || !itemValue) {
+            return;
+          }
+
+          if (open && accordion.collapsible) {
+            accordion.setValue(undefined);
+          } else {
+            accordion.setValue(itemValue);
+          }
+        }}
+        {...props}
+      >
+        {children}
+        <ChevronDownIcon className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
+      </button>
+    </div>
+  );
+});
+AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Content>,
-    React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-    <AccordionPrimitive.Content
-        ref={ref}
-        className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-        {...props}
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => {
+  const accordion = React.useContext(AccordionContext);
+  const itemValue = React.useContext(AccordionItemContext);
+  const open = Boolean(itemValue && accordion?.value === itemValue);
+
+  return (
+    <div
+      ref={ref}
+      hidden={!open}
+      data-state={open ? "open" : "closed"}
+      className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      {...props}
     >
-        <div className={cn("pb-4 pt-0", className)}>{children}</div>
-    </AccordionPrimitive.Content>
-));
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    </div>
+  );
+});
+AccordionContent.displayName = "AccordionContent";
 
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
