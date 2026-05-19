@@ -173,7 +173,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
                     : "bg-[var(--gradient-card)]"
                 }`}
               >
-                <CardContent className="relative flex h-full flex-col justify-between gap-[var(--gap-lg)] px-[var(--card-px)] py-[var(--card-py)]">
+                <CardContent className="relative flex h-full flex-col gap-[var(--gap-lg)] px-[var(--card-px)] py-[var(--card-py)]">
                   <div className="flex flex-col items-center gap-5">
                     <div className="flex w-full flex-col items-start gap-[var(--gap-md)]">
                       <div className="flex w-full flex-col items-start gap-1">
@@ -217,12 +217,12 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
                     </Button>
                   </div>
                   <ul className="flex w-full flex-col items-start gap-3">
-                    {plan.features.map((feature) => (
+                    {plan.features.map((feature, featureIndex) => (
                       <li key={feature} className="flex w-full items-start gap-2">
                         <Image
-                          className="mt-0.5 shrink-0"
+                          className="shrink-0 self-start"
                           alt=""
-                          src={feature.startsWith("Все возможности") ? "/icon-8.svg" : "/icon.svg"}
+                          src={featureIndex === 0 ? "/feature-icon-primary.svg" : "/feature-icon-secondary.svg"}
                           width={20}
                           height={20}
                         />
