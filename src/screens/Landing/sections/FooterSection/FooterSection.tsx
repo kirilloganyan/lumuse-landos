@@ -36,7 +36,7 @@ export const FooterSection = (): React.JSX.Element => {
         width={795}
         height={372}
       />
-      <Card className="relative z-10 border-0 bg-transparent shadow-none">
+      <Card className="relative z-10 border-0 bg-[linear-gradient(180deg,#E29972_0%,#E05D17_50%,rgba(224,93,23,0)_100%)] shadow-none">
         <CardContent className="mx-auto flex min-h-[420px] w-full max-w-[var(--container-footer)] flex-col justify-between px-6 pb-16 pt-[76px] sm:px-10 lg:px-[90px] lg:pb-20">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <a href="#" className="shrink-0" aria-label="Lumuse — наверх страницы">
