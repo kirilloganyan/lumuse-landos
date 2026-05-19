@@ -1,0 +1,93 @@
+name: Build & Deploy to Prod
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment: production
+    name: Build & Deploy Next.js to Prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Prepare release artifact
+        run: |
+          set -e
+
+          rm -rf release
+          mkdir -p release
+
+          cp -R .next/standalone/. release/
+          mkdir -p release/.next
+          cp -R .next/static release/.next/static
+
+          if [ -d public ]; then
+            cp -R public release/public
+          fi
+
+          tar -czf lumuse-landing.tar.gz -C release .
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+
+      - name: Add server to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.PROD_SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Upload release artifact
+        run: |
+          scp lumuse-landing.tar.gz server@${{ secrets.PROD_SERVER_HOST }}:/home/server/lumuse-landing.tar.gz
+
+      - name: Deploy on server
+        run: |
+          ssh server@${{ secrets.PROD_SERVER_HOST }} << 'EOF'
+            set -e
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            nvm use 26
+
+            APP_DIR="/home/server/lumuse-landing"
+            RELEASES_DIR="$APP_DIR/releases"
+            RELEASE_DIR="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
+
+            mkdir -p "$RELEASE_DIR"
+            tar -xzf /home/server/lumuse-landing.tar.gz -C "$RELEASE_DIR"
+            rm -f /home/server/lumuse-landing.tar.gz
+
+            ln -sfn "$RELEASE_DIR" "$APP_DIR/current"
+
+            cd "$APP_DIR/current"
+
+            pm2 delete lumuse-landing || true
+            PORT=3000 HOSTNAME=127.0.0.1 pm2 start server.js --name lumuse-landing --cwd "$APP_DIR/current"
+
+            pm2 save
+
+            find "$RELEASES_DIR" -mindepth 1 -maxdepth 1 -type d | sort | head -n -5 | xargs -r rm -rf
+          EOF
