@@ -294,14 +294,15 @@ export const UseCasesSection = (): React.JSX.Element => {
               })}
             </div>
           </nav>
-          <div className="relative min-h-[467px] rounded-[var(--radius-2xl)]">
-            <div className="relative ml-0 w-full max-w-[632px] lg:h-[467px]">
-              <div className="relative w-full rounded-[13.23px] bg-[var(--color-bg-card)] p-0 lg:absolute lg:left-2.5 lg:top-0 lg:h-[378px] lg:w-[548px] lg:overflow-hidden">
-                <div className="relative min-h-[378px] lg:pl-[161px]">
-                  <aside className="flex w-full flex-col p-3 lg:absolute lg:left-0 lg:top-0 lg:h-[377px] lg:w-[161px] lg:p-0">
+          <div className="relative flex min-h-[467px] justify-center rounded-[var(--radius-2xl)] overflow-visible">
+            <div className="origin-top scale-[0.62] sm:scale-[0.78] lg:scale-100">
+              <div className="relative ml-0 h-[467px] w-[632px]">
+                <div className="absolute left-2.5 top-0 h-[378px] w-[548px] overflow-hidden rounded-[13.23px] bg-[var(--color-bg-card)] p-0">
+                <div className="relative min-h-[378px] pl-[161px]">
+                  <aside className="flex w-full flex-col p-3 absolute left-0 top-0 h-[377px] w-[161px] p-0">
                     <button
                       type="button"
-                      className="ml-0 inline-flex h-[13.23px] w-[35.9px] items-center justify-center gap-[0.94px] rounded-[20.79px] px-[3.78px] py-[2.83px] lg:ml-[9.4px] lg:mt-[9.4px]"
+                      className="ml-0 inline-flex h-[13.23px] w-[35.9px] items-center justify-center gap-[0.94px] rounded-[20.79px] px-[3.78px] py-[2.83px] ml-[9.4px] mt-[9.4px]"
                     >
                       <span className="inline-flex h-[7.56px] items-center">
                         <img
@@ -316,7 +317,7 @@ export const UseCasesSection = (): React.JSX.Element => {
                         </span>
                       </span>
                     </button>
-                    <div className="ml-0 mt-3 inline-flex h-3 w-[94.28px] items-center gap-[2.83px] lg:ml-[9.4px] lg:mt-[5.7px]">
+                    <div className="ml-0 mt-3 inline-flex h-3 w-[94.28px] items-center gap-[2.83px] ml-[9.4px] mt-[5.7px]">
                       <img
                         className="h-[9.45px] w-[9.45px]"
                         alt=""
@@ -326,7 +327,7 @@ export const UseCasesSection = (): React.JSX.Element => {
                         Название проекта
                       </span>
                     </div>
-                    <div className="ml-0 mt-3 inline-flex h-[17.5px] w-[75.35px] items-center gap-[3.78px] lg:ml-[9.4px] lg:mt-[6.9px]">
+                    <div className="ml-0 mt-3 inline-flex h-[17.5px] w-[75.35px] items-center gap-[3.78px] ml-[9.4px] mt-[6.9px]">
                       <button
                         type="button"
                         className="inline-flex h-auto items-center justify-center gap-[0.94px] rounded-[20.79px] bg-[var(--color-primary-faint)] px-[4.72px] py-[3.78px]"
@@ -357,11 +358,11 @@ export const UseCasesSection = (): React.JSX.Element => {
                       </button>
                     </div>
                     <img
-                      className="mt-4 w-full max-w-[141.72px] lg:ml-[9.4px] lg:mt-[6.1px]"
+                      className="mt-4 w-full max-w-[141.72px] ml-[9.4px] mt-[6.1px]"
                       alt="Vector"
                       src="/vector-13.svg"
                     />
-                    <div className="mt-4 flex w-full max-w-[141.72px] flex-col gap-[5.67px] lg:ml-[9.4px] lg:mt-[3.3px] lg:h-[142.21px]">
+                    <div className="mt-4 flex w-full max-w-[141.72px] flex-col gap-[5.67px] ml-[9.4px] mt-[3.3px] h-[142.21px]">
                       <div className="flex items-center justify-between">
                         <button
                           type="button"
@@ -439,8 +440,8 @@ export const UseCasesSection = (): React.JSX.Element => {
                       </div>
                     </div>
                   </aside>
-                  <div className="relative min-h-[378px] bg-[var(--color-bg-white-50)] lg:h-[467px] lg:w-[387px]">
-                    <div className="px-4 pb-4 pt-4 lg:ml-[22.7px] lg:mr-[22.27px] lg:w-[342.03px] lg:px-0 lg:pb-0 lg:pt-[11.3px]">
+                  <div className="relative h-[467px] w-[387px] bg-[var(--color-bg-white-50)]">
+                    <div className="px-4 pb-4 pt-4 ml-[22.7px] mr-[22.27px] w-[342.03px] px-0 pb-0 pt-[11.3px]">
                       <div className="flex items-center justify-between">
                         <div className="[font-family:'Onest',Helvetica] text-[9.4px] font-medium leading-[11.3px] tracking-[-0.19px] text-[var(--color-primary)]">
                           Название поста
