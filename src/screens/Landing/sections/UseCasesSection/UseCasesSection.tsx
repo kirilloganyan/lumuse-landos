@@ -185,9 +185,15 @@ export const UseCasesSection = (): React.JSX.Element => {
         </header>
         <div className="mt-16 flex flex-col items-center gap-6 lg:mt-[91px]">
           <div className="relative w-full">
-            <div className="flex gap-3 overflow-x-auto pb-2 sm:hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+            <div className="overflow-hidden sm:hidden">
+              <div
+                className="flex gap-3 pb-2 transition-transform duration-300 ease-out"
+                style={{
+                  transform: `translateX(-${carouselIndex * (255 + 12)}px)`,
+                }}
+              >
               {modelCards.map((card, index) => (
-                <div key={`mobile-${card.title}`} className="w-[255px] flex-shrink-0 snap-start">
+                <div key={`mobile-${card.title}`} className="w-[255px] flex-shrink-0">
                   <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
                     <CardContent className="relative h-full p-0">
                       {card.bottomGlow ? (
@@ -210,6 +216,7 @@ export const UseCasesSection = (): React.JSX.Element => {
                   </Card>
                 </div>
               ))}
+              </div>
             </div>
             <div className="hidden overflow-hidden sm:flex">
               <div
