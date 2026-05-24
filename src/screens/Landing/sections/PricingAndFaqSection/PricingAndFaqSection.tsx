@@ -291,7 +291,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-[var(--gradient-card)] px-6 sm:px-8"
+              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-white px-6 sm:px-8"
             >
               <AccordionTrigger className="group gap-5 py-4 text-left hover:no-underline [&>svg]:hidden">
                 <div className="flex flex-1 items-start justify-between gap-5">

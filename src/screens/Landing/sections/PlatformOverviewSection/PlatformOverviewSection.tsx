@@ -2,10 +2,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/components/ui/toggle-group";
 
 export const PlatformOverviewSection = (): React.JSX.Element => {
   return (
@@ -19,28 +15,6 @@ export const PlatformOverviewSection = (): React.JSX.Element => {
             Попробовать бесплатно
           </Button>
         </header>
-        <div className="flex w-full flex-col items-center gap-8 md:gap-14">
-          <ToggleGroup
-            type="single"
-            defaultValue="assistant"
-            className="inline-flex items-center rounded-[var(--radius-2xl)] border border-solid bg-[var(--color-primary-faint)] p-1 shadow-[inset_0px_0px_36px_#c7c7c71f] backdrop-blur backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(8px)_brightness(100%)]"
-          >
-            <ToggleGroupItem
-              value="assistant"
-              className="h-auto rounded-[var(--radius-2xl)] bg-white px-5 py-2.5 [font-family:'Onest',Helvetica] text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-[var(--color-primary)] data-[state=on]:bg-white data-[state=on]:text-[var(--color-primary)]"
-              aria-label="Чат с ассистентом"
-            >
-              Чат с ассистентом
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="images"
-              className="h-auto rounded-[var(--radius-2xl)] px-5 py-2.5 [font-family:'Onest',Helvetica] text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-[var(--color-primary-muted)] data-[state=on]:bg-white data-[state=on]:text-[var(--color-primary)]"
-              aria-label="Генерация изображений"
-            >
-              Генерация изображений
-            </ToggleGroupItem>
-          </ToggleGroup>
-        </div>
       </div>
     </section>
   );
