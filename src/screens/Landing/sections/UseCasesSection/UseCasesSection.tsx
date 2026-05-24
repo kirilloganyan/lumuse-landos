@@ -254,7 +254,7 @@ export const UseCasesSection = (): React.JSX.Element => {
               type="button"
               variant="ghost"
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 hidden h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)] sm:inline-flex"
+              className="absolute left-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
             >
               <img
                 className="h-5 w-5 rotate-180"
@@ -266,7 +266,7 @@ export const UseCasesSection = (): React.JSX.Element => {
               type="button"
               variant="ghost"
               onClick={handleNext}
-              className="absolute right-0 top-1/2 hidden h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)] sm:inline-flex"
+              className="absolute right-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
             >
               <img
                 className="h-5 w-5"
