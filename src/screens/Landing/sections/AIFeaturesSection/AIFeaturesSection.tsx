@@ -75,8 +75,7 @@ const creativeMiniCards = [
 ] as const;
 
 export const AIFeaturesSection = (): React.JSX.Element => {
-  const topCarousel = useCarouselIndex(topCards.length);
-  const bottomCarousel = useCarouselIndex(3);
+  const mobileCarousel = useCarouselIndex(5);
 
   return (
     <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
@@ -86,11 +85,82 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           AI-возможностями: AI-креатив, учеба и развитие, полезные рекомендации,
           AI-текст и пространство для креатива.
         </p>
-        <div ref={topCarousel.containerRef} className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-5">
+        <div
+          ref={mobileCarousel.containerRef}
+          className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:hidden"
+        >
           {topCards.map((card) => (
             <Card
               key={card.title}
-              className={`w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none sm:w-auto sm:max-w-none sm:shrink sm:snap-align-none ${card.className}`}
+              className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+            >
+              <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
+                <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                  <span className="text-[var(--color-primary)]">{card.title}</span>
+                  <span className="text-[var(--color-primary-muted)]">{card.description}</span>
+                </header>
+                <img
+                  className={card.imageClassName}
+                  alt={card.imageAlt}
+                  src={card.image}
+                />
+              </CardContent>
+            </Card>
+          ))}
+          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
+              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                <span className="text-[var(--color-primary)]">Полезные рекомендации. </span>
+                <span className="text-[var(--color-primary-muted)]">
+                  Анализ вводных, сравнение вариантов и понятные решения
+                </span>
+              </header>
+            </CardContent>
+          </Card>
+          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
+              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                <span className="text-[var(--color-primary)]">AI-текст. </span>
+                <span className="text-[var(--color-primary-muted)]">
+                  На любом языке и&nbsp;под любые задачи
+                </span>
+              </header>
+            </CardContent>
+          </Card>
+          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
+              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                <span className="text-[var(--color-primary)]">
+                  Пространство для креатива.{" "}
+                </span>
+                <span className="text-[var(--color-primary-muted)]">
+                  Создавайте&nbsp;прорывные решения в&nbsp;творчестве, бизнесе,
+                  блоггинге и&nbsp;учёбе
+                </span>
+              </header>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="flex justify-center gap-2 sm:hidden">
+          {[0, 1, 2, 3, 4].map((index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => mobileCarousel.goTo(index)}
+              aria-label={`Показать карточку ${index + 1}`}
+              className={`h-2 w-2 rounded-full transition-colors ${
+                index === mobileCarousel.activeIndex
+                  ? "bg-[var(--color-primary)]"
+                  : "bg-[var(--color-primary-muted)]/40"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-5">
+          {topCards.map((card) => (
+            <Card
+              key={card.title}
+              className={`overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none ${card.className}`}
             >
               <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
                 <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -106,23 +176,8 @@ export const AIFeaturesSection = (): React.JSX.Element => {
             </Card>
           ))}
         </div>
-        <div className="flex justify-center gap-2 sm:hidden">
-          {topCards.map((card, index) => (
-            <button
-              key={card.title}
-              type="button"
-              onClick={() => topCarousel.goTo(index)}
-              aria-label={`Показать карточку ${index + 1}`}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                index === topCarousel.activeIndex
-                  ? "bg-[var(--color-primary)]"
-                  : "bg-[var(--color-primary-muted)]/40"
-              }`}
-            />
-          ))}
-        </div>
-        <div ref={bottomCarousel.containerRef} className="mt-[var(--card-gap)] flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mt-0 sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none sm:w-auto sm:max-w-none sm:shrink sm:snap-align-none">
+        <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-3">
+          <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
             <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]">Полезные рекомендации. </span>
@@ -157,7 +212,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </div>
             </CardContent>
           </Card>
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none sm:w-auto sm:max-w-none sm:shrink sm:snap-align-none">
+          <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
             <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]">AI-текст. </span>
@@ -205,7 +260,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </div>
             </CardContent>
           </Card>
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none sm:w-auto sm:max-w-none sm:shrink sm:snap-align-none">
+          <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
             <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]">
@@ -268,21 +323,6 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </div>
             </CardContent>
           </Card>
-        </div>
-        <div className="flex justify-center gap-2 sm:hidden">
-          {[0, 1, 2].map((index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => bottomCarousel.goTo(index)}
-              aria-label={`Показать карточку ${index + 1}`}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                index === bottomCarousel.activeIndex
-                  ? "bg-[var(--color-primary)]"
-                  : "bg-[var(--color-primary-muted)]/40"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>
