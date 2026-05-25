@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const topCards = [
   {
@@ -96,75 +97,87 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           AI-возможностями: AI-креатив, учеба и развитие, полезные рекомендации,
           AI-текст и пространство для креатива.
         </p>
-        <div
-          ref={mobileCarousel.containerRef}
-          className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:hidden"
-        >
-          {topCards.map((card) => (
+        <div className="relative lg:hidden">
+          <div
+            ref={mobileCarousel.containerRef}
+            className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {topCards.map((card) => (
+              <Card
+                key={card.title}
+                className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+              >
+                <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
+                  <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                    <span className="text-[var(--color-primary)]">{card.title}</span>
+                    <span className="text-[var(--color-primary-muted)]">{card.description}</span>
+                  </header>
+                  <img
+                    className={card.imageClassName}
+                    alt={card.imageAlt}
+                    src={card.image}
+                  />
+                </CardContent>
+              </Card>
+            ))}
             <Card
-              key={card.title}
               className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
             >
-              <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
-                <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                  <span className="text-[var(--color-primary)]">{card.title}</span>
-                  <span className="text-[var(--color-primary-muted)]">{card.description}</span>
+              <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
+                <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                  <span className="text-[var(--color-primary)]">Полезные рекомендации. </span>
+                  <span className="text-[var(--color-primary-muted)]">
+                    Анализ вводных, сравнение вариантов и понятные решения
+                  </span>
                 </header>
-                <img
-                  className={card.imageClassName}
-                  alt={card.imageAlt}
-                  src={card.image}
-                />
               </CardContent>
             </Card>
-          ))}
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
-              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                <span className="text-[var(--color-primary)]">Полезные рекомендации. </span>
-                <span className="text-[var(--color-primary-muted)]">
-                  Анализ вводных, сравнение вариантов и понятные решения
-                </span>
-              </header>
-            </CardContent>
-          </Card>
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
-              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                <span className="text-[var(--color-primary)]">AI-текст. </span>
-                <span className="text-[var(--color-primary-muted)]">
-                  На любом языке и&nbsp;под любые задачи
-                </span>
-              </header>
-            </CardContent>
-          </Card>
-          <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
-              <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                <span className="text-[var(--color-primary)]">
-                  Пространство для креатива.{" "}
-                </span>
-                <span className="text-[var(--color-primary-muted)]">
-                  Создавайте&nbsp;прорывные решения в&nbsp;творчестве, бизнесе,
-                  блоггинге и&nbsp;учёбе
-                </span>
-              </header>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="flex items-center justify-center gap-3 sm:hidden">
-          <button
+            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+              <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
+                <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                  <span className="text-[var(--color-primary)]">AI-текст. </span>
+                  <span className="text-[var(--color-primary-muted)]">
+                    На любом языке и&nbsp;под любые задачи
+                  </span>
+                </header>
+              </CardContent>
+            </Card>
+            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+              <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
+                <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
+                  <span className="text-[var(--color-primary)]">
+                    Пространство для креатива.{" "}
+                  </span>
+                  <span className="text-[var(--color-primary-muted)]">
+                    Создавайте&nbsp;прорывные решения в&nbsp;творчестве, бизнесе,
+                    блоггинге и&nbsp;учёбе
+                  </span>
+                </header>
+              </CardContent>
+            </Card>
+          </div>
+          <Button
             type="button"
+            variant="ghost"
             onClick={handleMobilePrev}
-            aria-label="Предыдущая карточка"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-bg-gray-ghost)]"
+            className="absolute left-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
           >
             <img
-              className="h-4 w-4 rotate-180"
-              alt="Стрелка влево"
+              className="h-5 w-5 rotate-180"
+              alt="Chevron left"
               src="/chevron-right.svg"
             />
-          </button>
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={handleMobileNext}
+            className="absolute right-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
+          >
+            <img className="h-5 w-5" alt="Chevron right" src="/chevron-right.svg" />
+          </Button>
+        </div>
+        <div className="flex items-center justify-center gap-3 sm:hidden">
           <div className="flex justify-center gap-2">
             {[0, 1, 2, 3, 4].map((index) => (
               <button
@@ -180,14 +193,6 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               />
             ))}
           </div>
-          <button
-            type="button"
-            onClick={handleMobileNext}
-            aria-label="Следующая карточка"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-bg-gray-ghost)]"
-          >
-            <img className="h-4 w-4" alt="Стрелка вправо" src="/chevron-right.svg" />
-          </button>
         </div>
         <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-5">
           {topCards.map((card) => (
