@@ -76,6 +76,17 @@ const creativeMiniCards = [
 
 export const AIFeaturesSection = (): React.JSX.Element => {
   const mobileCarousel = useCarouselIndex(5);
+  const totalMobileSlides = 5;
+
+  const handleMobilePrev = () => {
+    mobileCarousel.goTo(
+      (mobileCarousel.activeIndex - 1 + totalMobileSlides) % totalMobileSlides,
+    );
+  };
+
+  const handleMobileNext = () => {
+    mobileCarousel.goTo((mobileCarousel.activeIndex + 1) % totalMobileSlides);
+  };
 
   return (
     <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
@@ -141,20 +152,42 @@ export const AIFeaturesSection = (): React.JSX.Element => {
             </CardContent>
           </Card>
         </div>
-        <div className="flex justify-center gap-2 sm:hidden">
-          {[0, 1, 2, 3, 4].map((index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => mobileCarousel.goTo(index)}
-              aria-label={`Показать карточку ${index + 1}`}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                index === mobileCarousel.activeIndex
-                  ? "bg-[var(--color-primary)]"
-                  : "bg-[var(--color-primary-muted)]/40"
-              }`}
+        <div className="flex items-center justify-center gap-3 sm:hidden">
+          <button
+            type="button"
+            onClick={handleMobilePrev}
+            aria-label="Предыдущая карточка"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-bg-gray-ghost)]"
+          >
+            <img
+              className="h-4 w-4 rotate-180"
+              alt="Стрелка влево"
+              src="/chevron-right.svg"
             />
-          ))}
+          </button>
+          <div className="flex justify-center gap-2">
+            {[0, 1, 2, 3, 4].map((index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => mobileCarousel.goTo(index)}
+                aria-label={`Показать карточку ${index + 1}`}
+                className={`h-2 w-2 rounded-full transition-colors ${
+                  index === mobileCarousel.activeIndex
+                    ? "bg-[var(--color-primary)]"
+                    : "bg-[var(--color-primary-muted)]/40"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={handleMobileNext}
+            aria-label="Следующая карточка"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-bg-gray-ghost)]"
+          >
+            <img className="h-4 w-4" alt="Стрелка вправо" src="/chevron-right.svg" />
+          </button>
         </div>
         <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-5">
           {topCards.map((card) => (
