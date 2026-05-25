@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const topCards = [
@@ -22,6 +22,52 @@ const topCards = [
   },
 ] as const;
 
+
+
+const useCarouselIndex = (itemsCount: number) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    const handleScroll = () => {
+      const children = Array.from(node.children) as HTMLElement[];
+      if (!children.length) return;
+
+      let closestIndex = 0;
+      let minDistance = Number.POSITIVE_INFINITY;
+
+      children.forEach((child, index) => {
+        const distance = Math.abs(child.offsetLeft - node.scrollLeft);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    handleScroll();
+    node.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => node.removeEventListener("scroll", handleScroll);
+  }, [itemsCount]);
+
+  const goTo = (index: number) => {
+    const node = containerRef.current;
+    const target = node?.children[index] as HTMLElement | undefined;
+    if (!node || !target) return;
+
+    node.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+    setActiveIndex(index);
+  };
+
+  return { containerRef, activeIndex, goTo };
+};
+
 const creativeMiniCards = [
   { title: "Идея для поста", width: "w-[203px]", outerClassName: "mt-[7px]" },
   { title: "Для поста", width: "w-[224.86px]", outerClassName: "" },
@@ -29,6 +75,9 @@ const creativeMiniCards = [
 ] as const;
 
 export const AIFeaturesSection = (): React.JSX.Element => {
+  const topCarousel = useCarouselIndex(topCards.length);
+  const bottomCarousel = useCarouselIndex(3);
+
   return (
     <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
       <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col gap-[var(--card-gap)]">
@@ -37,7 +86,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           AI-возможностями: AI-креатив, учеба и развитие, полезные рекомендации,
           AI-текст и пространство для креатива.
         </p>
-        <div className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-5">
+        <div ref={topCarousel.containerRef} className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-5">
           {topCards.map((card) => (
             <Card
               key={card.title}
@@ -57,7 +106,22 @@ export const AIFeaturesSection = (): React.JSX.Element => {
             </Card>
           ))}
         </div>
-        <div className="mt-[var(--card-gap)] flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mt-0 sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
+        <div className="flex justify-center gap-2 sm:hidden">
+          {topCards.map((card, index) => (
+            <button
+              key={card.title}
+              type="button"
+              onClick={() => topCarousel.goTo(index)}
+              aria-label={`Показать карточку ${index + 1}`}
+              className={`h-2 w-2 rounded-full transition-colors ${
+                index === topCarousel.activeIndex
+                  ? "bg-[var(--color-primary)]"
+                  : "bg-[var(--color-primary-muted)]/40"
+              }`}
+            />
+          ))}
+        </div>
+        <div ref={bottomCarousel.containerRef} className="mt-[var(--card-gap)] flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mt-0 sm:grid sm:grid-cols-1 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
           <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none sm:w-auto sm:max-w-none sm:shrink sm:snap-align-none">
             <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -204,6 +268,21 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </div>
             </CardContent>
           </Card>
+        </div>
+        <div className="flex justify-center gap-2 sm:hidden">
+          {[0, 1, 2].map((index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => bottomCarousel.goTo(index)}
+              aria-label={`Показать карточку ${index + 1}`}
+              className={`h-2 w-2 rounded-full transition-colors ${
+                index === bottomCarousel.activeIndex
+                  ? "bg-[var(--color-primary)]"
+                  : "bg-[var(--color-primary-muted)]/40"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
