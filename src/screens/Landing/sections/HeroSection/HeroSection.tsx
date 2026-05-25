@@ -8,13 +8,7 @@ const heroActions = [
     variant: "default" as const,
     className:
       "h-auto rounded-[var(--radius-pill)] bg-[var(--color-primary)] px-[var(--btn-pill-px)] py-[var(--btn-pill-py)] font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-white [font-style:var(--text-body-medium-font-style)] hover:bg-[var(--color-primary)]/90",
-  },
-  {
-    label: "Подробнее",
-    variant: "secondary" as const,
-    className:
-      "h-auto rounded-[var(--radius-pill)] border-0 bg-[var(--color-primary-faint)] px-[var(--btn-pill-px)] py-[var(--btn-pill-py)] font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-body-medium-font-style)] hover:bg-[var(--color-primary-ghost)]",
-  },
+  }
 ];
 
 export const HeroSection = (): React.JSX.Element => {

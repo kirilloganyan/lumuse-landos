@@ -221,7 +221,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                     {creativeMiniCards.map((card, index) => (
                       <article
                         key={`${card.title}-${index}`}
-                        className={`relative flex h-[130px] flex-col border-[none] bg-[var(--color-bg-white-70)] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(197deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] before:[mask-composite:exclude] ${card.width} ${card.outerClassName} ${
+                        className={`relative flex h-[130px] shrink-0 flex-col border-[none] bg-[var(--color-bg-white-70)] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(197deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] before:[mask-composite:exclude] ${card.width} ${card.outerClassName} ${
                           index === 1
                             ? "h-36 gap-[14.4px] rounded-[20px] before:rounded-[20px] before:p-0.5"
                             : "rounded-[16.28px] before:rounded-[16.28px] before:p-[1.8px]"
@@ -422,12 +422,12 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                   блоггинге и&nbsp;учёбе
                 </span>
               </header>
-              <div className="mt-auto flex w-full justify-center pb-2 pt-8">
-                <div className="flex w-full max-w-[671px] flex-wrap items-end justify-center gap-[20.1px]">
+              <div className="mt-auto flex w-full justify-center overflow-hidden pb-2 pt-8">
+                <div className="bottom-6 left-[-40px] flex w-max items-end gap-[20px]">
                   {creativeMiniCards.map((card, index) => (
                     <article
                       key={`${card.title}-${index}`}
-                      className={`relative flex h-[130px] flex-col border-[none] bg-[var(--color-bg-white-70)] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(197deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] before:[mask-composite:exclude] ${card.width} ${card.outerClassName} ${
+                      className={`relative flex h-[130px] shrink-0 flex-col border-[none] bg-[var(--color-bg-white-70)] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(197deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] before:[mask-composite:exclude] ${card.width} ${card.outerClassName} ${
                         index === 1
                           ? "h-36 gap-[14.4px] rounded-[20px] before:rounded-[20px] before:p-0.5"
                           : "rounded-[16.28px] before:rounded-[16.28px] before:p-[1.8px]"
