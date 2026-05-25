@@ -79,14 +79,14 @@ export const Landing = (): React.JSX.Element => {
             src="/frame-2131328938.svg"
           />
         </section>
-        <section id="ai-features" className="relative z-10 w-full">
-          <AIFeaturesSection />
-        </section>
         <section className="relative z-10 w-full">
           <UseCasesSection />
         </section>
         <section className="relative z-10 w-full">
           <PlatformOverviewSection />
+        </section>
+        <section id="ai-features" className="relative z-10 w-full">
+          <AIFeaturesSection />
         </section>
         <section id="pricing-faq" className="relative z-10 w-full">
           <PricingAndFaqSection />
