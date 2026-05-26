@@ -217,7 +217,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                   </span>
                 </header>
                 <div className="mt-auto flex w-full justify-center pb-2 pt-8">
-                  <div className="flex w-full max-w-[671px] flex-wrap items-end justify-center gap-[20.1px]">
+                  <div className="flex w-full max-w-[671px] flex-nowrap items-end justify-start gap-[20.1px] overflow-x-auto">
                     {creativeMiniCards.map((card, index) => (
                       <article
                         key={`${card.title}-${index}`}
