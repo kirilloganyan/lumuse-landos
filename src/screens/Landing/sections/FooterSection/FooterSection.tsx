@@ -15,27 +15,6 @@ const legalLinks = [
 export const FooterSection = (): React.JSX.Element => {
   return (
     <footer className="relative w-full overflow-hidden rounded-t-[var(--radius-footer)] bg-[var(--color-primary-faint)]">
-      <Image
-        className="pointer-events-none absolute -top-[52px] left-1/4 w-[1430px] max-w-none select-none opacity-70"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={1430}
-        height={263}
-      />
-      <Image
-        className="pointer-events-none absolute -top-[52px] left-[39%] w-[1205px] max-w-none select-none opacity-50"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={1205}
-        height={135}
-      />
-      <Image
-        className="pointer-events-none absolute -top-[153px] left-[29%] w-[795px] max-w-none select-none opacity-60"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={795}
-        height={372}
-      />
       <Card className="relative z-10 border-0 bg-transparent shadow-none">
         <CardContent className="mx-auto flex min-h-[420px] w-full max-w-[var(--container-footer)] flex-col justify-between px-6 pb-16 pt-[76px] sm:px-10 lg:px-[90px] lg:pb-20">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
@@ -43,7 +22,7 @@ export const FooterSection = (): React.JSX.Element => {
               <Image
                 className="h-auto w-[249px] max-w-full"
                 alt="Lumuse"
-                src="/frame-2131328921.svg"
+                src="/big-text-logo.svg"
                 width={249}
                 height={58}
               />

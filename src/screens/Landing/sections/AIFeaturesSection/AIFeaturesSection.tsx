@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 const topCards = [
   {
@@ -24,51 +23,6 @@ const topCards = [
 ] as const;
 
 
-
-const useCarouselIndex = (itemsCount: number) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const node = containerRef.current;
-    if (!node) return;
-
-    const handleScroll = () => {
-      const children = Array.from(node.children) as HTMLElement[];
-      if (!children.length) return;
-
-      let closestIndex = 0;
-      let minDistance = Number.POSITIVE_INFINITY;
-
-      children.forEach((child, index) => {
-        const distance = Math.abs(child.offsetLeft - node.scrollLeft);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      setActiveIndex(closestIndex);
-    };
-
-    handleScroll();
-    node.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => node.removeEventListener("scroll", handleScroll);
-  }, [itemsCount]);
-
-  const goTo = (index: number) => {
-    const node = containerRef.current;
-    const target = node?.children[index] as HTMLElement | undefined;
-    if (!node || !target) return;
-
-    node.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
-    setActiveIndex(index);
-  };
-
-  return { containerRef, activeIndex, goTo };
-};
-
 const creativeMiniCards = [
   { title: "Идея для поста", width: "w-[203px]", outerClassName: "mt-[7px]" },
   { title: "Для поста", width: "w-[224.86px]", outerClassName: "" },
@@ -76,19 +30,6 @@ const creativeMiniCards = [
 ] as const;
 
 export const AIFeaturesSection = (): React.JSX.Element => {
-  const mobileCarousel = useCarouselIndex(5);
-  const totalMobileSlides = 5;
-
-  const handleMobilePrev = () => {
-    mobileCarousel.goTo(
-      (mobileCarousel.activeIndex - 1 + totalMobileSlides) % totalMobileSlides,
-    );
-  };
-
-  const handleMobileNext = () => {
-    mobileCarousel.goTo((mobileCarousel.activeIndex + 1) % totalMobileSlides);
-  };
-
   return (
     <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
       <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col gap-[var(--card-gap)]">
@@ -97,15 +38,14 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           AI-возможностями: AI-креатив, учеба и развитие, полезные рекомендации,
           AI-текст и пространство для креатива.
         </p>
-        <div className="relative lg:hidden">
+        <div className="flex w-full flex-col gap-[var(--card-gap)] lg:hidden">
           <div
-            ref={mobileCarousel.containerRef}
-            className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex w-full flex-col gap-[var(--card-gap)]"
           >
             {topCards.map((card) => (
               <Card
                 key={card.title}
-                className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+                className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
               >
                 <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
                   <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -121,7 +61,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </Card>
             ))}
             <Card
-              className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+              className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
             >
               <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -157,7 +97,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <Card className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
               <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                   <span className="text-[var(--color-primary)]">AI-текст. </span>
@@ -205,7 +145,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <Card className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
               <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                   <span className="text-[var(--color-primary)]">
@@ -216,8 +156,8 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                     блоггинге и&nbsp;учёбе
                   </span>
                 </header>
-                <div className="mt-auto flex w-full justify-center pb-2 pt-8">
-                  <div className="flex w-full max-w-[671px] flex-wrap items-end justify-center gap-[20.1px]">
+                <div className="mt-auto flex w-full justify-center overflow-hidden pb-2 pt-8">
+                  <div className="flex w-full max-w-[671px] flex-row flex-nowrap items-end justify-center gap-[20.1px]">
                     {creativeMiniCards.map((card, index) => (
                       <article
                         key={`${card.title}-${index}`}
@@ -268,43 +208,6 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={handleMobilePrev}
-            className="absolute left-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
-          >
-            <img
-              className="h-5 w-5 rotate-180"
-              alt="Chevron left"
-              src="/chevron-right.svg"
-            />
-          </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={handleMobileNext}
-            className="absolute right-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
-          >
-            <img className="h-5 w-5" alt="Chevron right" src="/chevron-right.svg" />
-          </Button>
-        </div>
-        <div className="flex items-center justify-center gap-3 sm:hidden">
-          <div className="flex justify-center gap-2">
-            {[0, 1, 2, 3, 4].map((index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => mobileCarousel.goTo(index)}
-                aria-label={`Показать карточку ${index + 1}`}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  index === mobileCarousel.activeIndex
-                    ? "bg-[var(--color-primary)]"
-                    : "bg-[var(--color-primary-muted)]/40"
-                }`}
-              />
-            ))}
           </div>
         </div>
         <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-5">
@@ -366,15 +269,15 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
             <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                <span className="text-[var(--color-primary)]">AI-текст. </span>
+                <span className="text-[var(--color-primary)]"> Тексты для любых задач. <br/></span>
                 <span className="text-[var(--color-primary-muted)]">
-                  На любом языке и&nbsp;под любые задачи
+                  Сценарии, презентации, посты, переводы и тексты на разных языках
                 </span>
               </header>
               <div className="relative mt-auto flex w-full justify-start pb-0 pt-8">
                 <div className="relative h-[297px] w-full max-w-[411px]">
                   <div className="relative ml-[21px] mt-[23px] h-[237px] w-[357.18px]">
-                    <div className="absolute left-10 top-[161px] flex h-[76px] w-[204px] flex-col gap-1.5 rounded-[12.95px] border-[none] bg-[var(--color-bg-white-60)] opacity-40 shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2px] backdrop-brightness-[110%] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[12.95px] before:p-[1.79px] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(188deg,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0.36)_100%)] before:[mask-composite:exclude] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
+                    <div className="absolute left-5 top-[161px] flex h-[76px] w-[204px] flex-col gap-1.5 rounded-[12.95px] border-[none] bg-[var(--color-bg-white-60)] opacity-40 shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2px] backdrop-brightness-[110%] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[12.95px] before:p-[1.79px] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(188deg,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0.36)_100%)] before:[mask-composite:exclude] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
                       <div className="ml-3.5 mt-3.5 h-3 w-[171px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
                       <div className="ml-3.5 h-3 w-[120px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
                       <div className="ml-3.5 h-3 w-[156px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
@@ -402,7 +305,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                       />
                     </div>
                     <img
-                      className="absolute left-[312px] top-0 h-[66px] w-[60px]"
+                      className="absolute left-[295px] top-0 h-[66px] w-[60px]"
                       alt="Group"
                       src="/group-2131328946.png"
                     />

@@ -72,22 +72,13 @@ export const Landing = (): React.JSX.Element => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[748px] bg-[var(--gradient-hero-top)]" />
         <div className="pointer-events-none absolute left-0 right-0 top-[48%] h-[1560px] bg-[var(--gradient-hero-mid)]" />
         <HeroSection />
-        <section className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-4 py-8 sm:py-10">
-          <img
-            className="mx-auto h-12 w-full max-w-[var(--container-content)]"
-            alt="Frame"
-            src="/frame-2131328938.svg"
-          />
+        <section id="ai-features" className="relative z-10 w-full">
+          <AIFeaturesSection />
         </section>
         <section className="relative z-10 w-full">
           <UseCasesSection />
         </section>
-        <section className="relative z-10 w-full">
-          <PlatformOverviewSection />
-        </section>
-        <section id="ai-features" className="relative z-10 w-full">
-          <AIFeaturesSection />
-        </section>
+
         <section id="pricing-faq" className="relative z-10 w-full">
           <PricingAndFaqSection />
         </section>
