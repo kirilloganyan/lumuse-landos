@@ -269,15 +269,15 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
             <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
-                <span className="text-[var(--color-primary)]">AI-текст. </span>
+                <span className="text-[var(--color-primary)]"> Тексты для любых задач. <br/></span>
                 <span className="text-[var(--color-primary-muted)]">
-                  На любом языке и&nbsp;под любые задачи
+                  Сценарии, презентации, посты, переводы и тексты на разных языках
                 </span>
               </header>
               <div className="relative mt-auto flex w-full justify-start pb-0 pt-8">
                 <div className="relative h-[297px] w-full max-w-[411px]">
                   <div className="relative ml-[21px] mt-[23px] h-[237px] w-[357.18px]">
-                    <div className="absolute left-10 top-[161px] flex h-[76px] w-[204px] flex-col gap-1.5 rounded-[12.95px] border-[none] bg-[var(--color-bg-white-60)] opacity-40 shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2px] backdrop-brightness-[110%] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[12.95px] before:p-[1.79px] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(188deg,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0.36)_100%)] before:[mask-composite:exclude] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
+                    <div className="absolute left-5 top-[161px] flex h-[76px] w-[204px] flex-col gap-1.5 rounded-[12.95px] border-[none] bg-[var(--color-bg-white-60)] opacity-40 shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2px] backdrop-brightness-[110%] before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[12.95px] before:p-[1.79px] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[background:linear-gradient(188deg,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0.36)_100%)] before:[mask-composite:exclude] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
                       <div className="ml-3.5 mt-3.5 h-3 w-[171px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
                       <div className="ml-3.5 h-3 w-[120px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
                       <div className="ml-3.5 h-3 w-[156px] rounded-[32px] bg-[var(--color-gray)] opacity-20" />
@@ -305,7 +305,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                       />
                     </div>
                     <img
-                      className="absolute left-[312px] top-0 h-[66px] w-[60px]"
+                      className="absolute left-[295px] top-0 h-[66px] w-[60px]"
                       alt="Group"
                       src="/group-2131328946.png"
                     />

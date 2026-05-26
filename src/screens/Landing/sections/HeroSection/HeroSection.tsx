@@ -25,21 +25,18 @@ export const HeroSection = (): React.JSX.Element => {
         </Badge>
         <header className="flex w-full flex-col items-center gap-[var(--gap-lg)]">
           <h1 className="max-w-[1016px] text-center font-normal leading-[1.05] tracking-[var(--h1-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h1-size-mobile)] sm:text-[var(--h1-size-tablet)] md:text-[var(--h1-size-desktop)] lg:text-7xl lg:leading-[var(--h1-leading)]">
-            AI-ассистент с&nbsp;дашбордом для&nbsp;создания и&nbsp;ведения
-            проектов
+            Одна подписка — топовые нейросети для контента, творчества и работы
           </h1>
           <div className="flex flex-col items-center">
             <div className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
-              <p className="mb-[36px] lg:mb-[72px]">
-                Доступ к множеству нейросетей без VPN.
-              </p>
-              <p className="mb-5">
-                Самые актуальные ИИ с&nbsp;оплатой российской картой
+              <p className="mb-[24px] lg:mb-[72px]">
+                Доступ без VPN. Оплата российской картой.
+                Прозрачные тарифы без скрытых ограничений.
               </p>
             </div>
             <nav
               aria-label="Основные действия"
-              className="flex flex-wrap items-center justify-center gap-[var(--gap-sm)]"
+              className="flex flex-wrap mb-[100px] items-center justify-center gap-[var(--gap-sm)]"
             >
               {heroActions.map((action) => (
                 <Button
