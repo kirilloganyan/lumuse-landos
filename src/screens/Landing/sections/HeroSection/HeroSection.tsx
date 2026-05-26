@@ -28,12 +28,15 @@ export const HeroSection = (): React.JSX.Element => {
             AI-ассистент с&nbsp;дашбордом для&nbsp;создания и&nbsp;ведения
             проектов
           </h1>
-          <div className="flex flex-col items-center gap-[var(--gap-2xl)]">
-            <p className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
-              Доступ к множеству нейросетей без VPN.
-              <br />
-              Самые актуальные ИИ с&nbsp;оплатой российской картой
-            </p>
+          <div className="flex flex-col items-center">
+            <div className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
+              <p className="mb-[36px] lg:mb-[72px]">
+                Доступ к множеству нейросетей без VPN.
+              </p>
+              <p className="mb-5">
+                Самые актуальные ИИ с&nbsp;оплатой российской картой
+              </p>
+            </div>
             <nav
               aria-label="Основные действия"
               className="flex flex-wrap items-center justify-center gap-[var(--gap-sm)]"
