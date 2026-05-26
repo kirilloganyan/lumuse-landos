@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 const topCards = [
   {
@@ -24,51 +23,6 @@ const topCards = [
 ] as const;
 
 
-
-const useCarouselIndex = (itemsCount: number) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const node = containerRef.current;
-    if (!node) return;
-
-    const handleScroll = () => {
-      const children = Array.from(node.children) as HTMLElement[];
-      if (!children.length) return;
-
-      let closestIndex = 0;
-      let minDistance = Number.POSITIVE_INFINITY;
-
-      children.forEach((child, index) => {
-        const distance = Math.abs(child.offsetLeft - node.scrollLeft);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      setActiveIndex(closestIndex);
-    };
-
-    handleScroll();
-    node.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => node.removeEventListener("scroll", handleScroll);
-  }, [itemsCount]);
-
-  const goTo = (index: number) => {
-    const node = containerRef.current;
-    const target = node?.children[index] as HTMLElement | undefined;
-    if (!node || !target) return;
-
-    node.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
-    setActiveIndex(index);
-  };
-
-  return { containerRef, activeIndex, goTo };
-};
-
 const creativeMiniCards = [
   { title: "Идея для поста", width: "w-[203px]", outerClassName: "mt-[7px]" },
   { title: "Для поста", width: "w-[224.86px]", outerClassName: "" },
@@ -76,19 +30,6 @@ const creativeMiniCards = [
 ] as const;
 
 export const AIFeaturesSection = (): React.JSX.Element => {
-  const mobileCarousel = useCarouselIndex(5);
-  const totalMobileSlides = 5;
-
-  const handleMobilePrev = () => {
-    mobileCarousel.goTo(
-      (mobileCarousel.activeIndex - 1 + totalMobileSlides) % totalMobileSlides,
-    );
-  };
-
-  const handleMobileNext = () => {
-    mobileCarousel.goTo((mobileCarousel.activeIndex + 1) % totalMobileSlides);
-  };
-
   return (
     <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
       <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col gap-[var(--card-gap)]">
@@ -97,15 +38,14 @@ export const AIFeaturesSection = (): React.JSX.Element => {
           AI-возможностями: AI-креатив, учеба и развитие, полезные рекомендации,
           AI-текст и пространство для креатива.
         </p>
-        <div className="relative lg:hidden">
+        <div className="flex w-full flex-col gap-[var(--card-gap)] lg:hidden">
           <div
-            ref={mobileCarousel.containerRef}
-            className="flex w-full snap-x snap-mandatory gap-[var(--card-gap)] overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex w-full flex-col gap-[var(--card-gap)]"
           >
             {topCards.map((card) => (
               <Card
                 key={card.title}
-                className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+                className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
               >
                 <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
                   <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -121,7 +61,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               </Card>
             ))}
             <Card
-              className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
+              className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none"
             >
               <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
@@ -157,7 +97,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <Card className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
               <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                   <span className="text-[var(--color-primary)]">AI-текст. </span>
@@ -205,7 +145,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="w-[88%] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
+            <Card className="w-full overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
               <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)]">
                 <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                   <span className="text-[var(--color-primary)]">
@@ -268,43 +208,6 @@ export const AIFeaturesSection = (): React.JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={handleMobilePrev}
-            className="absolute left-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
-          >
-            <img
-              className="h-5 w-5 rotate-180"
-              alt="Chevron left"
-              src="/chevron-right.svg"
-            />
-          </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={handleMobileNext}
-            className="absolute right-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
-          >
-            <img className="h-5 w-5" alt="Chevron right" src="/chevron-right.svg" />
-          </Button>
-        </div>
-        <div className="flex items-center justify-center gap-3 sm:hidden">
-          <div className="flex justify-center gap-2">
-            {[0, 1, 2, 3, 4].map((index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => mobileCarousel.goTo(index)}
-                aria-label={`Показать карточку ${index + 1}`}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  index === mobileCarousel.activeIndex
-                    ? "bg-[var(--color-primary)]"
-                    : "bg-[var(--color-primary-muted)]/40"
-                }`}
-              />
-            ))}
           </div>
         </div>
         <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-5">
