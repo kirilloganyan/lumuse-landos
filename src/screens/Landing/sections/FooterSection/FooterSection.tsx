@@ -16,7 +16,7 @@ export const FooterSection = (): React.JSX.Element => {
   return (
     <footer className="relative w-full overflow-hidden rounded-t-[var(--radius-footer)] bg-[var(--color-primary-faint)]">
       <Card className="relative z-10 border-0 bg-transparent shadow-none">
-        <CardContent className="mx-auto flex min-h-[420px] w-full max-w-[var(--container-footer)] flex-col justify-between px-6 pb-16 pt-[76px] sm:px-10 lg:px-[90px] lg:pb-20">
+        <CardContent className="mx-auto flex min-h-[420px] w-full max-w-[var(--container-footer)] flex-col justify-between px-6 pb-16 pt-[76px] lg:px-[90px] lg:pb-20">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <a href="#" className="shrink-0" aria-label="Lumuse — наверх страницы">
               <Image
@@ -29,7 +29,7 @@ export const FooterSection = (): React.JSX.Element => {
             </a>
             <nav
               aria-label="Навигация в футере"
-              className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-16 lg:grid-cols-[189px_185px] lg:gap-6"
+              className="grid grid-cols-1 gap-10 lg:grid-cols-[189px_185px] lg:gap-6"
             >
               {navigationGroups.map((group, groupIndex) => (
                 <ul
@@ -50,19 +50,19 @@ export const FooterSection = (): React.JSX.Element => {
               ))}
             </nav>
           </div>
-          <div className="mt-12 flex flex-col gap-4 pt-6 text-[var(--color-primary-muted)] md:flex-row md:items-center md:justify-between">
+          <div className="mt-12 flex flex-col gap-4 pt-6 text-[var(--color-primary-muted)] lg:flex-row lg:items-center lg:justify-between">
             <p className="font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] [font-style:var(--text-callout-medium-font-style)]">
               Lumuse, 2026. Все права защищены
             </p>
             <nav
               aria-label="Юридическая навигация"
-              className="flex flex-col gap-3 md:flex-row md:items-center md:gap-10"
+              className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-10"
             >
               {legalLinks.map((link) => (
                 <button
                   key={link}
                   type="button"
-                  className="text-left font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)] md:text-right"
+                  className="text-left font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)] lg:text-right"
                 >
                   {link}
                 </button>

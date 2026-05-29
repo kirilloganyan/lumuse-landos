@@ -19,8 +19,8 @@ export const Landing = (): React.JSX.Element => {
   return (
     <div className="min-h-screen w-full bg-[var(--color-bg-page)]">
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/20 bg-white/50 backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
-        <div className="mx-auto flex w-full max-w-[var(--container-max)] items-center justify-between gap-[var(--gap-md)] px-3 py-3 sm:px-4 sm:py-4">
-          <div className="flex min-w-0 items-center gap-[var(--gap-sm)] sm:gap-[var(--gap-lg)]">
+        <div className="mx-auto flex w-full max-w-[var(--container-max)] items-center justify-between gap-[var(--gap-md)] px-3 py-3 lg:px-4 lg:py-4">
+          <div className="flex min-w-0 items-center gap-[var(--gap-sm)] lg:gap-[var(--gap-lg)]">
             <a href="#" className="shrink-0">
               <img
                 className="h-8 w-[127px]"
@@ -29,11 +29,11 @@ export const Landing = (): React.JSX.Element => {
               />
             </a>
             <img
-              className="hidden h-9 w-px shrink-0 sm:block"
+              className="hidden h-9 w-px shrink-0 lg:block"
               alt="Vector"
               src="/icon-54.svg"
             />
-            <nav aria-label="Основная навигация" className="hidden sm:block">
+            <nav aria-label="Основная навигация" className="hidden lg:block">
               <ul className="flex items-center gap-[var(--gap-lg)] px-2">
                 {navigationItems.map((item) => (
                   <li key={item.label}>
@@ -48,10 +48,10 @@ export const Landing = (): React.JSX.Element => {
               </ul>
             </nav>
           </div>
-          <div className="flex shrink-0 items-center gap-[var(--gap-xs)] sm:gap-[var(--gap-sm)]">
+          <div className="flex shrink-0 items-center gap-[var(--gap-xs)] lg:gap-[var(--gap-sm)]">
             <Button
               variant="ghost"
-              className="h-auto rounded-[var(--radius-pill)] px-3 py-3 text-[var(--color-primary-muted)] hover:bg-transparent hover:text-[var(--color-primary)] sm:px-4 sm:py-3.5"
+              className="h-auto rounded-[var(--radius-pill)] px-3 py-3 text-[var(--color-primary-muted)] hover:bg-transparent hover:text-[var(--color-primary)] lg:px-4 lg:py-3.5"
             >
               <span className="inline-flex items-center">
                 <img className="h-5 w-5" alt="Icon" src="/icon-54.svg" />
@@ -68,7 +68,7 @@ export const Landing = (): React.JSX.Element => {
           </div>
         </div>
       </header>
-      <main className="relative flex w-full flex-col overflow-hidden pt-[68px] sm:pt-[80px]">
+      <main className="relative flex w-full flex-col overflow-hidden pt-[68px] lg:pt-[80px]">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[748px] bg-[var(--gradient-hero-top)]" />
         <div className="pointer-events-none absolute left-0 right-0 top-[48%] h-[1560px] bg-[var(--gradient-hero-mid)]" />
         <HeroSection />

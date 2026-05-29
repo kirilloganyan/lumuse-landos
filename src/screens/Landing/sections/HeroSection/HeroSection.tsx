@@ -14,7 +14,7 @@ const heroActions = [
 export const HeroSection = (): React.JSX.Element => {
   return (
     <section className="relative w-full">
-      <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col items-center gap-[var(--gap-3xl)] px-4 pt-6 sm:px-6 sm:pt-8 md:pt-10 lg:px-8">
+      <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col items-center gap-[var(--gap-3xl)] px-4 pt-6 lg:px-8 lg:pt-10">
         <Badge className="flex h-auto items-center gap-2.5 rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-[var(--color-bg-white-50)] py-[var(--badge-py)] pl-3 pr-4 font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] backdrop-blur-[2px] backdrop-brightness-[100%] [font-style:var(--text-callout-medium-font-style)] [-webkit-backdrop-filter:blur(2px)_brightness(100%)]">
           <img
             className="h-6 w-6 shrink-0"
@@ -24,11 +24,11 @@ export const HeroSection = (): React.JSX.Element => {
           <span className="whitespace-nowrap">Сгенировать контент</span>
         </Badge>
         <header className="flex w-full flex-col items-center gap-[var(--gap-lg)]">
-          <h1 className="max-w-[1016px] text-center font-normal leading-[1.05] tracking-[var(--h1-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h1-size-mobile)] sm:text-[var(--h1-size-tablet)] md:text-[var(--h1-size-desktop)] lg:text-7xl lg:leading-[var(--h1-leading)]">
+          <h1 className="max-w-[1016px] text-center font-normal leading-[1.05] tracking-[var(--h1-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h1-size-mobile)] lg:text-7xl lg:leading-[var(--h1-leading)]">
             Одна подписка — топовые нейросети для контента, творчества и работы
           </h1>
           <div className="flex flex-col items-center">
-            <div className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
+            <div className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] lg:text-xl lg:tracking-[-0.40px]">
               <p className="mb-[24px] lg:mb-[72px]">
                 Доступ без VPN. Оплата российской картой.
                 Прозрачные тарифы без скрытых ограничений.

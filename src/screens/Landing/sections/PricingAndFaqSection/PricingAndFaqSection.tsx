@@ -129,11 +129,11 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
   const [billingPeriod, setBillingPeriod] = useState<PricingTab>("Месяц");
 
   return (
-    <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col items-start gap-[var(--gap-6xl)] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col items-start gap-[var(--gap-6xl)] px-4 py-20 lg:px-8 lg:py-28">
       <div className="flex w-full flex-col items-start gap-[var(--gap-5xl)]">
         <header className="flex w-full flex-col items-center gap-[var(--gap-xl)]">
           <div className="flex w-full max-w-[628px] flex-col items-center gap-[var(--gap-md)]">
-            <h2 className="text-center font-normal leading-[var(--h2-leading-tablet)] tracking-[var(--h2-tracking-tablet)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h2-size-mobile)] md:text-[var(--h2-size-tablet)] lg:text-[56px] lg:leading-[56px] lg:tracking-[-1.68px]">
+            <h2 className="text-center font-normal leading-[48px] tracking-[-1.32px] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h2-size-mobile)] lg:text-[56px] lg:leading-[56px] lg:tracking-[-1.68px]">
               Простые и понятные тарифы
             </h2>
             <p className="max-w-[532px] text-center font-headline-headline-3 text-[length:var(--headline-headline-3-font-size)] font-[number:var(--headline-headline-3-font-weight)] leading-[var(--headline-headline-3-line-height)] tracking-[var(--headline-headline-3-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--headline-headline-3-font-style)]">
@@ -163,7 +163,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
         </header>
 
         <div className="flex w-full flex-col items-start gap-[var(--gap-sm)]">
-          <div className="grid w-full grid-cols-1 gap-[var(--gap-sm)] md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid w-full grid-cols-1 gap-[var(--gap-sm)] lg:grid-cols-2 xl:grid-cols-4">
             {plans.map((plan, index) => (
               <Card
                 key={plan.title}
@@ -238,7 +238,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
           </div>
 
           <Card className="w-full rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-[var(--gradient-card)] shadow-none">
-            <CardContent className="flex min-h-32 flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between lg:gap-12">
+            <CardContent className="flex min-h-32 flex-col gap-6 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
               <div className="flex ">
                 <img
                     alt="black-logo.svg"
@@ -274,7 +274,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
       <section className="grid w-full gap-[var(--gap-2xl)] lg:grid-cols-[315px_1fr] lg:gap-[212px]">
         <div className="flex flex-col items-start gap-[var(--gap-2xl)]">
           <div className="flex flex-col items-start gap-[var(--gap-sm)]">
-            <h2 className="max-w-[315px] font-normal leading-[48px] tracking-[-1.44px] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-4xl sm:text-5xl">
+            <h2 className="max-w-[315px] font-normal leading-[48px] tracking-[-1.44px] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-4xl lg:text-5xl">
               Отвечаем на вопросы
             </h2>
             <p className="max-w-[315px] font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-body-medium-font-style)]">
@@ -300,7 +300,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-white px-6 sm:px-8"
+              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-white px-6 lg:px-8"
             >
               <AccordionTrigger className="group gap-5 py-4 text-left hover:no-underline [&>svg]:hidden">
                 <div className="flex flex-1 items-start justify-between gap-5">

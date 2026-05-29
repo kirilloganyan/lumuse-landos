@@ -31,7 +31,7 @@ const creativeMiniCards = [
 
 export const AIFeaturesSection = (): React.JSX.Element => {
   return (
-    <section className="relative w-full px-5 py-4 sm:px-6 lg:px-[var(--section-px-lg)]">
+    <section className="relative w-full px-5 py-4 lg:px-[var(--section-px-lg)]">
       <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-col gap-[var(--card-gap)]">
         <p className="sr-only">
           На изображении показан блок из пяти светло-серых карточек с
@@ -216,7 +216,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
               key={card.title}
               className={`overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none ${card.className}`}
             >
-              <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
+              <CardContent className="flex h-full min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] lg:px-10">
                 <header className="mx-auto max-w-[512px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                   <span className="text-[var(--color-primary)]">{card.title}</span>
                   <span className="text-[var(--color-primary-muted)]">{card.description}</span>
@@ -232,7 +232,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
         </div>
         <div className="hidden w-full gap-[var(--card-gap)] lg:grid lg:grid-cols-3">
           <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] sm:px-10">
+            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] lg:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]">Полезные рекомендации. </span>
                 <span className="text-[var(--color-primary-muted)]">
@@ -267,7 +267,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
             </CardContent>
           </Card>
           <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] sm:px-10">
+            <CardContent className="relative flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-0 pt-[var(--card-pt)] lg:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]"> Тексты для любых задач. <br/></span>
                 <span className="text-[var(--color-primary-muted)]">
@@ -315,7 +315,7 @@ export const AIFeaturesSection = (): React.JSX.Element => {
             </CardContent>
           </Card>
           <Card className="overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card)] shadow-none">
-            <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] sm:px-10">
+            <CardContent className="flex min-h-[var(--card-min-h)] flex-col px-[var(--card-px)] pb-[var(--card-pb)] pt-[var(--card-pt)] lg:px-10">
               <header className="mx-auto max-w-[360px] text-center font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] [font-style:var(--headline-headline-2-font-style)]">
                 <span className="text-[var(--color-primary)]">
                   Пространство для креатива.{" "}

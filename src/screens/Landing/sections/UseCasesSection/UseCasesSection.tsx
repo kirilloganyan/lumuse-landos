@@ -161,15 +161,15 @@ export const UseCasesSection = (): React.JSX.Element => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[var(--color-primary)] py-24 text-white md:py-32">
+    <section className="relative w-full overflow-hidden bg-[var(--color-primary)] py-24 text-white lg:py-32">
       <img
         className="pointer-events-none absolute left-1/2 top-[-351px] hidden h-[398px] w-[3432px] max-w-none -translate-x-1/2 lg:block"
         alt="Rectangle"
         src="/rectangle-240647075.svg"
       />
-      <div className="container relative z-10 mx-auto max-w-[var(--container-wide)] px-5 md:px-10 lg:px-[193px]">
+      <div className="container relative z-10 mx-auto max-w-[var(--container-wide)] px-5 lg:px-[193px]">
         <header className="grid items-start gap-10 lg:grid-cols-[422px_421px] lg:justify-between">
-          <h2 className="mt-[-1px] max-w-[422px] [font-family:'Onest',Helvetica] text-4xl font-normal leading-[1] tracking-[-1.92px] text-white md:text-5xl md:leading-[48px]">
+          <h2 className="mt-[-1px] max-w-[422px] [font-family:'Onest',Helvetica] text-4xl font-normal leading-[1] tracking-[-1.92px] text-white lg:text-5xl lg:leading-[48px]">
             Создавайте и творите на работе и дома
           </h2>
           <ul className="flex max-w-[421px] flex-col gap-5 py-2">
@@ -185,7 +185,7 @@ export const UseCasesSection = (): React.JSX.Element => {
         </header>
         <div className="mt-16 flex flex-col items-center gap-6 lg:mt-[91px]">
           <div className="relative w-full">
-            <div className="overflow-hidden sm:hidden">
+            <div className="overflow-hidden lg:hidden">
               <div
                 className="flex gap-3 pb-2 transition-transform duration-300 ease-out"
                 style={{
@@ -218,7 +218,7 @@ export const UseCasesSection = (): React.JSX.Element => {
               ))}
               </div>
             </div>
-            <div className="hidden overflow-hidden sm:flex">
+            <div className="hidden overflow-hidden lg:flex">
               <div
                 className="flex gap-3 transition-transform duration-300 ease-out"
                 style={{
