@@ -56,7 +56,6 @@
 
     ## Spacing — Section
     --section-py, 96px, section vertical padding (py-24)
-    --section-py-md, 128px, section vertical padding md (py-32)
     --section-px-lg, 88px, section horizontal padding lg
 
     ## Spacing — Card
@@ -103,19 +102,15 @@
 
     ## Typography — Heading 1
     --h1-size-mobile, 32px, mobile heading size
-    --h1-size-tablet, 44px, tablet heading size
     --h1-size-desktop, 56px, desktop heading size
     --h1-leading, 72px, heading line height
     --h1-tracking, -1.56px, heading letter spacing
 
     ## Typography — Heading 2
     --h2-size, 56px, section heading size
-    --h2-size-tablet, 44px, section heading tablet
     --h2-size-mobile, 36px, section heading mobile
     --h2-leading, 56px, heading line height
-    --h2-leading-tablet, 48px, heading line height tablet
     --h2-tracking, -1.68px, heading letter spacing
-    --h2-tracking-tablet, -1.32px, heading letter spacing tablet
     --h2-tracking-mobile, -1.08px, heading letter spacing mobile
 
     ## Typography — Pricing
@@ -167,7 +162,6 @@
 
   /* Spacing — Section */
   --section-py: 96px;
-  --section-py-md: 128px;
   --section-px-lg: 88px;
 
   /* Spacing — Card */
@@ -214,19 +208,15 @@
 
   /* Typography — Heading 1 */
   --h1-size-mobile: 32px;
-  --h1-size-tablet: 44px;
   --h1-size-desktop: 56px;
   --h1-leading: 72px;
   --h1-tracking: -1.56px;
 
   /* Typography — Heading 2 */
   --h2-size: 56px;
-  --h2-size-tablet: 44px;
   --h2-size-mobile: 36px;
   --h2-leading: 56px;
-  --h2-leading-tablet: 48px;
   --h2-tracking: -1.68px;
-  --h2-tracking-tablet: -1.32px;
   --h2-tracking-mobile: -1.08px;
 
   /* Typography — Pricing */
