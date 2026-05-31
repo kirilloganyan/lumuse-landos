@@ -8,13 +8,7 @@ const heroActions = [
     variant: "default" as const,
     className:
       "h-auto rounded-[var(--radius-pill)] bg-[var(--color-primary)] px-[var(--btn-pill-px)] py-[var(--btn-pill-py)] font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-white [font-style:var(--text-body-medium-font-style)] hover:bg-[var(--color-primary)]/90",
-  },
-  {
-    label: "Подробнее",
-    variant: "secondary" as const,
-    className:
-      "h-auto rounded-[var(--radius-pill)] border-0 bg-[var(--color-primary-faint)] px-[var(--btn-pill-px)] py-[var(--btn-pill-py)] font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-body-medium-font-style)] hover:bg-[var(--color-primary-ghost)]",
-  },
+  }
 ];
 
 export const HeroSection = (): React.JSX.Element => {
@@ -31,18 +25,18 @@ export const HeroSection = (): React.JSX.Element => {
         </Badge>
         <header className="flex w-full flex-col items-center gap-[var(--gap-lg)]">
           <h1 className="max-w-[1016px] text-center font-normal leading-[1.05] tracking-[var(--h1-tracking)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] text-[var(--h1-size-mobile)] sm:text-[var(--h1-size-tablet)] md:text-[var(--h1-size-desktop)] lg:text-7xl lg:leading-[var(--h1-leading)]">
-            AI-ассистент с&nbsp;дашбордом для&nbsp;создания и&nbsp;ведения
-            проектов
+            Одна подписка — топовые нейросети для контента, творчества и работы
           </h1>
-          <div className="flex flex-col items-center gap-[var(--gap-2xl)]">
-            <p className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
-              Доступ к множеству нейросетей без VPN.
-              <br />
-              Самые актуальные ИИ с&nbsp;оплатой российской картой
-            </p>
+          <div className="flex flex-col items-center">
+            <div className="max-w-[584px] text-center text-base font-normal leading-5 tracking-[var(--text-body-letter-spacing)] text-[var(--color-primary)] [font-family:'Onest',Helvetica] sm:text-lg sm:leading-6 sm:tracking-[-0.36px] lg:text-xl lg:tracking-[-0.40px]">
+              <p className="mb-[24px] lg:mb-[72px]">
+                Доступ без VPN. Оплата российской картой.
+                Прозрачные тарифы без скрытых ограничений.
+              </p>
+            </div>
             <nav
               aria-label="Основные действия"
-              className="flex flex-wrap items-center justify-center gap-[var(--gap-sm)]"
+              className="flex flex-wrap mb-[100px] items-center justify-center gap-[var(--gap-sm)]"
             >
               {heroActions.map((action) => (
                 <Button

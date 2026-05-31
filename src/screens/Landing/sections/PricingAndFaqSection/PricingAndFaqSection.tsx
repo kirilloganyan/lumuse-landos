@@ -239,13 +239,22 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
 
           <Card className="w-full rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-[var(--gradient-card)] shadow-none">
             <CardContent className="flex min-h-32 flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between lg:gap-12">
+              <div className="flex ">
+                <img
+                    alt="black-logo.svg"
+                    className="mr-[24px]"
+                    src="/black-logo.svg"
+                />
+                <div className="flex-col">
+                  <h3 className="font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] text-[var(--color-primary)] [font-style:var(--headline-headline-2-font-style)]">
+                    Решение для бизнеса
+                  </h3>
+                  <p className="max-w-[370px] font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)]">
+                    Персональные доработки под ваши решения с увеличенными лимитами и безграничными доступами
+                  </p>
+                </div>
+              </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-headline-headline-2 text-[length:var(--headline-headline-2-font-size)] font-[number:var(--headline-headline-2-font-weight)] leading-[var(--headline-headline-2-line-height)] tracking-[var(--headline-headline-2-letter-spacing)] text-[var(--color-primary)] [font-style:var(--headline-headline-2-font-style)]">
-                  Нужен тариф для команды?
-                </h3>
-                <p className="max-w-[670px] font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)]">
-                  Подберем лимиты, workspace и поддержку под задачи вашего отдела или компании.
-                </p>
               </div>
               <Button
                 type="button"
@@ -291,7 +300,7 @@ export const PricingAndFaqSection = (): React.JSX.Element => {
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-[var(--gradient-card)] px-6 sm:px-8"
+              className="overflow-hidden rounded-[var(--radius-2xl)] border border-solid border-[var(--color-primary-faint)] bg-white px-6 sm:px-8"
             >
               <AccordionTrigger className="group gap-5 py-4 text-left hover:no-underline [&>svg]:hidden">
                 <div className="flex flex-1 items-start justify-between gap-5">

@@ -25,13 +25,13 @@ const modelCards = [
     title: "Nano banana 2",
     description:
       "Продвинутый редактор изображений AI нового поколения от Google",
-    image: "/frame-2131328950-2.svg",
-    bottomGlow: "/rectangle-240647076.svg",
+    image: "/nanoBanana.png",
+    bottomGlow: "/Nano-Banana.svg",
   },
   {
     title: "Flux 2 Pro",
     description: "Текст про эту нейронку и ее особенности, может что-то еще",
-    image: "/frame-2131328950-3.svg",
+    image: "/flux2pro.svg",
   },
   {
     title: "GPT 5.5",
@@ -41,7 +41,7 @@ const modelCards = [
   {
     title: "Gemini 3 Pro",
     description: "Текст про эту нейронку и ее особенности, может что-то еще",
-    image: "/frame-2131328950-1.svg",
+    image: "/Gemini3.svg",
   },
 ];
 
@@ -95,8 +95,8 @@ const notifyItems = [
 ];
 
 const mediaItems = [
-  "/img-2-1.png",
-  "/img-3-1.png",
+  "/img-6-1.png",
+  "/img-7-1.png",
   "/image-6.png",
   "/img-4-1.png",
 ];
@@ -185,7 +185,40 @@ export const UseCasesSection = (): React.JSX.Element => {
         </header>
         <div className="mt-16 flex flex-col items-center gap-6 lg:mt-[91px]">
           <div className="relative w-full">
-            <div className="flex overflow-hidden">
+            <div className="overflow-hidden sm:hidden">
+              <div
+                className="flex gap-3 pb-2 transition-transform duration-300 ease-out"
+                style={{
+                  transform: `translateX(-${carouselIndex * (255 + 12)}px)`,
+                }}
+              >
+              {modelCards.map((card, index) => (
+                <div key={`mobile-${card.title}`} className="w-[255px] flex-shrink-0">
+                  <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
+                    <CardContent className="relative h-full p-0">
+                      {card.bottomGlow ? (
+                        <img className="absolute bottom-[-12px] left-0 h-[168px] w-[322px] max-w-none" alt="Rectangle" src={card.bottomGlow} />
+                      ) : null}
+                      <img
+                        className={`absolute left-0 top-0 h-[233px] w-[254px] max-w-none ${index === 3 ? "left-px" : ""}`}
+                        alt={card.title}
+                        src={card.image}
+                      />
+                      <div className={`absolute bottom-6 ${index === 0 ? "left-5" : "left-6"} flex w-[210px] flex-col gap-[5px]`}>
+                        <h3 className="mt-[-1px] font-headline-headline-3 text-[length:var(--headline-headline-3-font-size)] font-[number:var(--headline-headline-3-font-weight)] leading-[var(--headline-headline-3-line-height)] tracking-[var(--headline-headline-3-letter-spacing)] [font-style:var(--headline-headline-3-font-style)] text-white">
+                          {card.title}
+                        </h3>
+                        <p className="font-text-body text-[length:var(--text-body-font-size)] font-[number:var(--text-body-font-weight)] leading-[var(--text-body-line-height)] tracking-[var(--text-body-letter-spacing)] [font-style:var(--text-body-font-style)] text-[var(--color-bg-white-80)]">
+                          {card.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+              </div>
+            </div>
+            <div className="hidden overflow-hidden sm:flex">
               <div
                 className="flex gap-3 transition-transform duration-300 ease-out"
                 style={{
@@ -193,7 +226,8 @@ export const UseCasesSection = (): React.JSX.Element => {
                 }}
               >
                 {modelCards.map((card, index) => (
-                    <div key={card.title} className="w-[255px] flex-shrink-0">                    <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
+                  <div key={card.title} className="w-[255px] flex-shrink-0">
+                    <Card className="relative h-[310px] overflow-hidden rounded-[var(--radius-2xl)] border-0 bg-[var(--color-bg-card-hover)] shadow-none">
                       <CardContent className="relative h-full p-0">
                         {card.bottomGlow ? (
                           <img
@@ -227,7 +261,7 @@ export const UseCasesSection = (): React.JSX.Element => {
               type="button"
               variant="ghost"
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 hidden h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)] sm:inline-flex"
+              className="absolute left-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
             >
               <img
                 className="h-5 w-5 rotate-180"
@@ -239,7 +273,7 @@ export const UseCasesSection = (): React.JSX.Element => {
               type="button"
               variant="ghost"
               onClick={handleNext}
-              className="absolute right-0 top-1/2 hidden h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)] sm:inline-flex"
+              className="absolute right-0 top-1/2 inline-flex h-auto -translate-y-1/2 rounded-[var(--radius-pill)] bg-[var(--color-bg-gray-ghost)] p-3.5 backdrop-blur-[10px] hover:bg-[var(--color-bg-gray-ghost-hover)]"
             >
               <img
                 className="h-5 w-5"

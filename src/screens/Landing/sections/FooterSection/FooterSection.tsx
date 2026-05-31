@@ -8,52 +8,21 @@ const navigationGroups = [
 ];
 
 const legalLinks = [
-    {
-        name: "Пользовательское соглашение",
-        link: "https://lk.lumuse.ai/docs/user_agreement.pdf",
-    },
-    {
-        name: "Политика конфиденциальности",
-        link: "https://lk.lumuse.ai/docs/privacy_policy.pdf",
-    },
-    {
-        name: "Согласие на обработку персональных данных",
-        link: "https://lk.lumuse.ai/docs/consent_to_the_processing_of_personal_data.pdf",
-    },
+  "Политика конфиденциальности",
+  "Пользовательское соглашение",
 ];
 
 export const FooterSection = (): React.JSX.Element => {
   return (
     <footer className="relative w-full overflow-hidden rounded-t-[var(--radius-footer)] bg-[var(--color-primary-faint)]">
-      <Image
-        className="pointer-events-none absolute -top-[52px] left-1/4 w-[1430px] max-w-none select-none opacity-70"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={1430}
-        height={263}
-      />
-      <Image
-        className="pointer-events-none absolute -top-[52px] left-[39%] w-[1205px] max-w-none select-none opacity-50"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={1205}
-        height={135}
-      />
-      <Image
-        className="pointer-events-none absolute -top-[153px] left-[29%] w-[795px] max-w-none select-none opacity-60"
-        alt=""
-        src="/rectangle-240647075.svg"
-        width={795}
-        height={372}
-      />
-      <Card className="relative z-10 border-0 bg-[linear-gradient(180deg,#E29972_0%,#E05D17_50%,rgba(224,93,23,0)_100%)] shadow-none">
+      <Card className="relative z-10 border-0 bg-transparent shadow-none">
         <CardContent className="mx-auto flex min-h-[420px] w-full max-w-[var(--container-footer)] flex-col justify-between px-6 pb-16 pt-[76px] sm:px-10 lg:px-[90px] lg:pb-20">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <a href="#" className="shrink-0" aria-label="Lumuse — наверх страницы">
               <Image
                 className="h-auto w-[249px] max-w-full"
                 alt="Lumuse"
-                src="/frame-2131328921.svg"
+                src="/big-text-logo.svg"
                 width={249}
                 height={58}
               />
@@ -90,15 +59,13 @@ export const FooterSection = (): React.JSX.Element => {
               className="flex flex-col gap-3 md:flex-row md:items-center md:gap-10"
             >
               {legalLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.link}
+                <button
+                  key={link}
                   type="button"
-                  target={"_blank"}
                   className="text-left font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)] md:text-right"
                 >
-                  {link.name}
-                </a>
+                  {link}
+                </button>
               ))}
             </nav>
           </div>
