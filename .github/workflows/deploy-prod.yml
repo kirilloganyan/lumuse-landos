@@ -60,7 +60,10 @@ jobs:
 
       - name: Upload release artifact
         run: |
-          scp lumuse-landing.tar.gz server@${{ secrets.PROD_SERVER_HOST }}:/home/server/lumuse-landing.tar.gz
+          rsync -avz --progress \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            lumuse-landing.tar.gz \
+            server@${{ secrets.PROD_SERVER_HOST }}:/home/server/lumuse-landing.tar.gz
 
       - name: Deploy on server
         run: |

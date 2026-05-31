@@ -8,8 +8,18 @@ const navigationGroups = [
 ];
 
 const legalLinks = [
-  "Политика конфиденциальности",
-  "Пользовательское соглашение",
+    {
+        name: "Пользовательское соглашение",
+        link: "https://lk.lumuse.ai/docs/user_agreement.pdf",
+    },
+    {
+        name: "Политика конфиденциальности",
+        link: "https://lk.lumuse.ai/docs/privacy_policy.pdf",
+    },
+    {
+        name: "Согласие на обработку персональных данных",
+        link: "https://lk.lumuse.ai/docs/consent_to_the_processing_of_personal_data.pdf",
+    },
 ];
 
 export const FooterSection = (): React.JSX.Element => {
@@ -80,13 +90,15 @@ export const FooterSection = (): React.JSX.Element => {
               className="flex flex-col gap-3 md:flex-row md:items-center md:gap-10"
             >
               {legalLinks.map((link) => (
-                <button
-                  key={link}
+                <a
+                  key={link.name}
+                  href={link.link}
                   type="button"
+                  target={"_blank"}
                   className="text-left font-text-callout-medium text-[length:var(--text-callout-medium-font-size)] font-[number:var(--text-callout-medium-font-weight)] leading-[var(--text-callout-medium-line-height)] tracking-[var(--text-callout-medium-letter-spacing)] text-[var(--color-primary-muted)] [font-style:var(--text-callout-medium-font-style)] md:text-right"
                 >
-                  {link}
-                </button>
+                  {link.name}
+                </a>
               ))}
             </nav>
           </div>
