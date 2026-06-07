@@ -42,8 +42,8 @@
     --color-dark-blur, #191921, blur shadow elements
 
     ## Colors — Gradients
-    --gradient-hero-top, rgba(255,255,255,0.7)_0%_rgba(255,255,255,0)_100%, hero top fade
-    --gradient-hero-mid, rgba(255,255,255,1)_50%_rgba(255,255,255,0)_100%, hero mid fade
+    --gradient-hero-top, radial and linear layered dark warm hero gradient, hero background
+    --gradient-hero-mid, transparent-to-page fade below hero, hero bottom fade
     --gradient-card, rgba(237,237,237,1)_0%_rgba(255,255,255,0.5)_100%, card background
     --gradient-glass, rgba(255,255,255,0.6)_0%_rgba(255,255,255,0.36)_100%, glass border
     --gradient-glass-fade, rgba(255,255,255,0)_0%_rgba(255,255,255,0)_100%, glass fade
@@ -148,8 +148,12 @@
   --color-dark-blur: #191921;
 
   /* Colors — Gradients */
-  --gradient-hero-top: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
-  --gradient-hero-mid: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  --gradient-hero-top:
+    radial-gradient(74% 68% at 50% 3%, rgba(173, 83, 59, 0.88) 0%, rgba(143, 55, 30, 0.72) 25%, rgba(82, 31, 27, 0.44) 50%, rgba(20, 20, 20, 0) 76%),
+    radial-gradient(58% 50% at 65% 28%, rgba(223, 77, 20, 0.58) 0%, rgba(151, 42, 17, 0.36) 35%, rgba(20, 20, 20, 0) 74%),
+    radial-gradient(42% 44% at 23% 12%, rgba(74, 22, 12, 0.58) 0%, rgba(26, 19, 18, 0.38) 58%, rgba(20, 20, 20, 0) 100%),
+    linear-gradient(180deg, #1a0f0d 0%, #3b150f 27%, #261614 53%, #141414 86%);
+  --gradient-hero-mid: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 0.96) 62%, rgba(20, 20, 20, 0) 100%);
   --gradient-card: linear-gradient(0deg, rgba(237,237,237,1) 0%, rgba(237,237,237,1) 100%), linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%);
   --gradient-glass: linear-gradient(188deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.36) 100%);
   --gradient-glass-fade: linear-gradient(197deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
@@ -262,6 +266,20 @@
   --text-caption-medium-font-weight: 500;
   --text-caption-medium-letter-spacing: -0.12px;
   --text-caption-medium-line-height: 16px;
+}
+
+.landing-hero-gradient {
+  background: var(--gradient-hero-top);
+}
+
+.landing-hero-gradient::after {
+  background:
+    linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 0.82) 74%, rgba(20, 20, 20, 0) 100%),
+    radial-gradient(42% 24% at 50% 100%, rgba(14, 14, 14, 0.96) 0%, rgba(14, 14, 14, 0) 72%);
+  content: "";
+  inset: auto 0 0;
+  height: 32%;
+  position: absolute;
 }
 
 :root {

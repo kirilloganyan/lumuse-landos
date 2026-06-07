@@ -18,7 +18,7 @@ const navigationItems = [
 export const Landing = (): React.JSX.Element => {
   return (
     <div className="min-h-screen w-full bg-[var(--color-bg-page)]">
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/20 bg-white/50 backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#141414]/20 backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
         <div className="mx-auto flex w-full max-w-[var(--container-max)] items-center justify-between gap-[var(--gap-md)] px-3 py-3 lg:px-4 lg:py-4">
           <div className="flex min-w-0 items-center gap-[var(--gap-sm)] lg:gap-[var(--gap-lg)]">
             <a href="#" className="shrink-0">
@@ -39,7 +39,7 @@ export const Landing = (): React.JSX.Element => {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] whitespace-nowrap text-[var(--color-primary)] [font-style:var(--text-body-medium-font-style)]"
+                      className="font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] whitespace-nowrap text-white/90 transition hover:text-white [font-style:var(--text-body-medium-font-style)]"
                     >
                       {item.label}
                     </a>
@@ -51,16 +51,16 @@ export const Landing = (): React.JSX.Element => {
           <div className="flex shrink-0 items-center gap-[var(--gap-xs)] lg:gap-[var(--gap-sm)]">
             <Button
               variant="ghost"
-              className="h-auto rounded-[var(--radius-pill)] px-3 py-3 text-[var(--color-primary-muted)] hover:bg-transparent hover:text-[var(--color-primary)] lg:px-4 lg:py-3.5"
+              className="h-auto rounded-[var(--radius-pill)] px-3 py-3 text-white/80 hover:bg-white/10 hover:text-white lg:px-4 lg:py-3.5"
             >
               <span className="inline-flex items-center">
-                <img className="h-5 w-5" alt="Icon" src="/icon-54.svg" />
+                <img className="h-5 w-5 invert" alt="Icon" src="/icon-54.svg" />
                 <span className="px-1.5 font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] whitespace-nowrap [font-style:var(--text-body-medium-font-style)]">
                   Войти
                 </span>
               </span>
             </Button>
-            <Button className="h-auto rounded-[var(--radius-pill)] bg-[var(--color-primary)] px-[var(--btn-px)] py-[var(--btn-py)] text-white hover:bg-[var(--color-primary)]/90">
+            <Button className="h-auto rounded-[var(--radius-pill)] bg-white px-[var(--btn-px)] py-[var(--btn-py)] text-[var(--color-primary)] hover:bg-white/90">
               <span className="px-1.5 font-text-body-medium text-[length:var(--text-body-medium-font-size)] font-[number:var(--text-body-medium-font-weight)] leading-[var(--text-body-medium-line-height)] tracking-[var(--text-body-medium-letter-spacing)] whitespace-nowrap [font-style:var(--text-body-medium-font-style)]">
                 Попробовать
               </span>
@@ -69,10 +69,9 @@ export const Landing = (): React.JSX.Element => {
         </div>
       </header>
       <main className="relative flex w-full flex-col overflow-hidden pt-[68px] lg:pt-[80px]">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[748px] bg-[var(--gradient-hero-top)]" />
-        <div className="pointer-events-none absolute left-0 right-0 top-[48%] h-[1560px] bg-[var(--gradient-hero-mid)]" />
+        <div className="landing-hero-gradient pointer-events-none absolute inset-x-0 top-0 h-[760px] lg:h-[920px]" />
         <HeroSection />
-        <section id="ai-features" className="relative z-10 w-full">
+        <section id="ai-features" className="relative z-10 w-full bg-[var(--color-bg-page)]">
           <AIFeaturesSection />
         </section>
         <section className="relative z-10 w-full">
